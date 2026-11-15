@@ -84,7 +84,7 @@ const rows=ds.map((d,i)=>{const b=r.bet?Math.round(r.bet*(.6+((i*37+r.id)%10)/10
 m.querySelector('#pb').innerHTML=`<div style="max-height:190px;overflow:auto"><table><tr><th>日期时间</th><th>投注</th><th>派彩</th><th>返奖率</th></tr>${rows.map(x=>`<tr><td>${x.d}</td><td>${x.b}</td><td>${x.p}</td><td>${x.r.toFixed(2)}%</td></tr>`).join('')}</table></div><div class="flex items-end gap-1 mt-6 border-b border-l px-2" style="height:170px">${rows.map(x=>`<div class="flex-1 flex flex-col justify-end items-center h-full" title="${x.d} ${x.r}%"><div style="width:60%;max-width:24px;background:#4f9ddb;height:${x.r/mx*100}%"></div></div>`).join('')}</div><div class="text-center text-xs mt-2"><span style="background:#4f9ddb;display:inline-block;width:24px;height:10px"></span> 返奖率(%) <span class="opacity-60">（Y轴 0%–${mx}%）</span></div>`};
 m.querySelector('#rq').onclick=go;go()}
 /* ===== AI游戏返奖率配置 ===== */
-const FLAGS={bind:true,profit:false};/* 预留功能开关：bind=绑定游戏；profit=玩家保护「按游戏盈利」。改为 true 即显示 */
+const FLAGS={bind:false,profit:false};/* 预留功能开关：bind=绑定游戏；profit=玩家保护「按游戏盈利」。改为 true 即显示 */
 const RT=[94,94.5,95,95.5,96,96.5,97],PROT={on:false,st:'按时间',rate:96.5,hrs:24,amt:'0.00',tp:'游戏盈利金额',rel:'0.00'};
 const toast=m=>{const t=document.createElement('div');t.textContent=m;t.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:8px 18px;border-radius:4px;z-index:3000';document.body.append(t);setTimeout(()=>t.remove(),1800)};
 const bad=(el,m)=>{el.classList.add('bd2');el.closest('.fi').querySelector('.er').textContent=m;return 1},clr=M=>{M.querySelectorAll('.er').forEach(e=>e.textContent='');M.querySelectorAll('.bd2').forEach(e=>e.classList.remove('bd2'))};
