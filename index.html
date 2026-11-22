@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>子平台游戏配置 - 888</title>
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>AI游戏返奖率配置 - 888</title>
 <script src="https://cdn.tailwindcss.com/3.4.17"></script>
 <style>
 :root{--bg:#fff;--tx:#1f2329;--side:#001529;--sub:#000c17;--act:#2457c5;--pri:#1f56b8;--ln:#ebedf0;--th:#f5f6f7;--zb:#fafafa;--lk:#1d2ad6;--in:#d9d9d9;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -14,6 +14,8 @@ header{height:52px;display:flex;align-items:center;padding:0 16px;gap:14px;borde
 .f{display:flex;align-items:center;gap:6px}.f label{white-space:nowrap}
 select,input{height:34px;border:1px solid var(--in);border-radius:4px;padding:0 10px;background:var(--bg);color:var(--tx);min-width:120px}
 .btn{background:var(--pri);color:#fff;border-radius:4px;height:34px;padding:0 18px;cursor:pointer;border:0}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn-ghost{background:var(--bg);color:var(--tx);border:1px solid var(--in);border-radius:4px;height:34px;padding:0 16px;cursor:pointer}
 .tw{border:1px solid var(--ln);overflow:auto;flex:1;margin:0 12px}
 table{border-collapse:collapse;width:100%;text-align:center;font-size:13px}th{background:var(--th);font-weight:600;padding:10px 8px;position:sticky;top:0;white-space:nowrap}
 td{padding:9px 8px;border-bottom:1px solid var(--ln)}tr:nth-child(even) td{background:var(--zb)}.bl{color:#1a1aff}.ops span{color:var(--pri);cursor:pointer;margin:0 7px;font-size:16px}
@@ -23,14 +25,30 @@ td{padding:9px 8px;border-bottom:1px solid var(--ln)}tr:nth-child(even) td{backg
 .pg{display:flex;align-items:center;gap:10px;padding:12px 16px}.pg b{font-weight:400;min-width:26px;height:26px;line-height:24px;text-align:center;border:1px solid transparent;border-radius:4px;color:var(--lk);cursor:pointer}.pg b.on{border-color:var(--pri)}
 .dlg table th{background:var(--th)}
 .er{color:#e5321f;font-size:12px}input[type=checkbox],input[type=radio]{min-width:0;height:auto}.dn{display:none;font-style:normal;font-weight:400;font-size:11px;line-height:1.45;background:rgba(250,173,20,.16);border:1px dashed #fa8c16;color:#ad6800;border-radius:4px;padding:2px 8px;margin-left:6px;max-width:420px;white-space:normal;word-break:break-word;text-align:left;vertical-align:middle}body.dev .dn{display:inline-block}#dv{position:fixed;top:58px;right:12px;z-index:900;background:#fa8c16;color:#fff;border-radius:4px;padding:3px 12px;font-size:12px;box-shadow:0 2px 6px rgba(0,0,0,.3);cursor:pointer}#bn{background:#e6f0ff;color:#1d39c4;padding:6px 16px;border-bottom:1px solid var(--ln);font-size:13px}.bd2{border-color:#e5321f!important}.lk{color:var(--lk);cursor:pointer}.dlg label{margin-right:6px}.dlg .ops span[data-d]{margin:0 7px}
+.tag-on{display:inline-block;padding:1px 8px;border-radius:3px;background:#e6f7ed;color:#1f9d55;border:1px solid #b7eb8f;font-size:12px}
+.tag-off{display:inline-block;padding:1px 8px;border-radius:3px;background:#fff1f0;color:#cf1322;border:1px solid #ffa39e;font-size:12px}
+
+.sw-wrap{display:inline-flex;align-items:center;gap:8px;cursor:pointer;user-select:none}
+.sw{position:relative;display:inline-block;width:44px;height:22px;background:#bfbfbf;border-radius:999px;transition:background .2s}
+.sw::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;background:#fff;border-radius:50%;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.sw.on{background:#1f9d55}
+.sw.on::after{transform:translateX(22px)}
+
+/* 快捷模式3个Tab样式 */
+.qtabs{display:flex;border-bottom:1px solid var(--ln);padding:0 16px;gap:24px;background:var(--bg)}
+.qtab{padding:10px 4px;cursor:pointer;font-size:14px;font-weight:500;border-bottom:2px solid transparent;color:var(--tx);opacity:.72}
+.qtab.on{color:var(--pri);border-bottom-color:var(--pri);opacity:1;font-weight:600}
+.qcard{background:var(--bg);border:1px solid var(--ln);border-radius:6px;padding:20px 24px;max-width:920px}
 </style></head><body>
 <button id="dv">显示研发注释</button><div class="flex h-full">
 <aside><div class="flex items-center gap-2 px-5 h-[52px] text-white font-bold text-lg"><span style="color:#e5321f">▰</span>888</div>
 <div id="menu"></div></aside>
 <main class="flex flex-col flex-1 min-w-0">
-<header><span>☰</span><span style="color:var(--lk)">子平台游戏管理 ⌄</span><span class="opacity-60">/ <span id="bc">子平台游戏配置</span></span><span class="flex-1"></span><span style="color:#2fa84f;font-family:monospace;font-size:12px">▂▄▆ 242ms</span><span class="text-3xl">🇧🇷</span><span class="text-xs leading-tight">巴西<br><span id="clk">Etc/GMT+3</span></span><span>🔍</span><span>↓</span><span class="w-8 h-8 rounded-full bg-amber-300 inline-block"></span><span>admin888</span></header>
+<header><span>☰</span><span style="color:var(--lk)">子平台游戏管理 ⌄</span><span class="opacity-60">/ <span id="bc">AI游戏返奖率配置</span></span><span class="flex-1"></span><span style="color:#2fa84f;font-family:monospace;font-size:12px">▂▄▆ 242ms</span><span class="text-3xl">🇧🇷</span><span class="text-xs leading-tight">巴西<br><span id="clk">Etc/GMT+3</span></span><span>🔍</span><span>↓</span><span class="w-8 h-8 rounded-full bg-amber-300 inline-block"></span><span>admin888</span></header>
 <div class="tabs" id="tabs"></div><div id="bn" class="hidden"></div>
-<section id="p0" class="flex flex-col flex-1 min-h-0">
+
+<!-- 需求1：【子平台游戏配置】页面代码完整保留，通过 SHOW_SUB_PLATFORM_CONFIG 控制显隐 -->
+<section id="p0" class="hidden flex-col flex-1 min-h-0">
 <div class="p-4 flex flex-wrap gap-x-8 gap-y-3 items-center">
 <div class="f"><label>地区:</label><select id="fR"><option>巴西</option></select></div>
 <div class="f"><label>商户:</label><select id="fM"><option>888</option></select></div>
@@ -42,17 +60,98 @@ td{padding:9px 8px;border-bottom:1px solid var(--ln)}tr:nth-child(even) td{backg
 <div class="f"><label>策略名称:</label><input id="fS" placeholder="请输入"></div>
 <button class="btn" id="qb">查询</button></div>
 <div class="px-6 py-3 text-red-600">*返奖率数据统计区间为每日0点-24点</div>
-<div class="tw"><table><thead><tr><th>地区</th><th>商户</th><th>游戏ID</th><th>平台</th><th>游戏类型</th><th>游戏名称</th><th class="srt" data-k="bet">实时投注合计<i>▲▼</i></th><th class="srt" data-k="pay">实时派彩合计<i>▲▼</i></th><th class="srt" data-k="rate">综合实时返奖率<i>▲▼</i><em class="dn">=(总投注金额−平台总输赢)/总投注金额×100%，2位小数；统计区间每日0-24点；投注为0显示0.00%</em></th><th>目标返奖率</th><th>投注分段</th><th>默认干预</th><th>采用策略</th><th>最后操作人</th><th>最后操作时间</th><th>操作</th></tr></thead><tbody id="tb"></tbody></table></div>
+<div class="tw"><table><thead><tr><th>地区</th><th>商户</th><th>游戏ID</th><th>平台</th><th>游戏类型</th><th>游戏名称</th><th class="srt" data-k="bet">实时投注合计<i>▲▼</i></th><th class="srt" data-k="pay">实时派彩合计<i>▲▼</i></th><th class="srt" data-k="rate">综合实时返奖率<i>▲▼</i><em class="dn">=派彩合计÷投注合计×100%，2位小数；统计区间每日0-24点；投注为0显示0.00%</em></th><th>目标返奖率</th><th>投注分段</th><th>默认干预</th><th>采用策略</th><th>最后操作人</th><th>最后操作时间</th><th>操作</th></tr></thead><tbody id="tb"></tbody></table></div>
 <div class="pg" id="pg"></div></section>
-<section id="p1" class="hidden flex-col flex-1 min-h-0"><div class="p-4 flex flex-wrap gap-x-8 gap-y-3 items-center"><div class="f"><label>地区:</label><select><option>巴西</option></select></div><div class="f"><label>商户:</label><select><option>888</option></select></div><div class="f"><label>默认干预:</label><select id="aV"><option>全部</option><option>AI</option></select></div><div class="f"><label>策略名称:</label><input id="aN" placeholder="请输入"></div><div class="f"><label>策略类型:</label><select id="aT"><option>全部</option><option>投注分段策略</option><option>会员层级策略</option></select></div><button class="btn" id="aq">查询</button></div><div class="flex justify-between items-center px-4 pb-3"><div><em class="dn">同步规则：站点后台仅展示状态为“已开启”的策略（新增策略默认已开启）；若总控将策略关闭或删除，站点后台本列表不再显示该策略，且「子平台游戏配置」对应默认干预同步改为“关闭”（策略失效）；总控重新开启后恢复显示与生效</em></div><div class="flex gap-3"><button class="btn" id="ab1">AI返奖率介绍</button><button class="btn" id="ab2">玩家保护配置</button><button class="btn" id="ab3">新增策略</button></div></div><div class="tw"><table><thead><tr><th>策略Id</th><th>地区</th><th>商户</th><th>策略类型<em class="dn">枚举：投注分段策略/会员层级策略；决定编辑窗口展示内容</em></th><th>策略名称</th><th>默认干预</th><th>最低投注</th><th>返奖率</th><th>投注分段</th><th>最后操作人</th><th>最后操作时间</th><th>操作</th></tr></thead><tbody id="atb"></tbody></table></div><div class="pg" id="apg"></div></section>
+
+<!-- 需求2：【AI游戏返奖率配置】重构（快捷模式 / 表单模式双模式切换 + 隐藏查询栏） -->
+<section id="p1" class="hidden flex-col flex-1 min-h-0">
+  <!-- 需求2-1：查询功能全部隐藏（保留DOM结构供后续扩展，默认 hidden） -->
+  <div id="aiSearchBar" class="hidden p-4 flex-wrap gap-x-8 gap-y-3 items-center">
+    <div class="f"><label>地区:</label><select><option>巴西</option></select></div>
+    <div class="f"><label>商户:</label><select><option>888</option></select></div>
+    <div class="f"><label>默认干预:</label><select id="aV"><option>全部</option><option>AI</option></select></div>
+    <div class="f"><label>策略名称:</label><input id="aN" placeholder="请输入"></div>
+    <div class="f"><label>策略类型:</label><select id="aT"><option>全部</option><option>投注分段策略</option><option>会员层级策略</option></select></div>
+    <button class="btn" id="aq">查询</button>
+  </div>
+
+  <!-- 需求2-2-b：左上方切换显示模式按钮（快捷模式 / 表单模式） + 设为默认显示方式单选 + 表单模式右侧按钮区 -->
+  <div class="flex flex-wrap justify-between items-center px-4 py-3 border-b border-[var(--ln)] gap-3">
+    <div class="flex items-center gap-4">
+      <button class="btn" id="modeToggleBtn">切换为表单模式</button>
+      <label class="flex items-center gap-1.5 cursor-pointer select-none text-xs">
+        <input type="radio" id="setDefaultModeRadio" name="defaultModeOpt">
+        <span>设为默认显示方式</span>
+      </label>
+      <span class="text-xs opacity-60" id="currentModeHint">当前：快捷模式</span>
+      <em class="dn">切换模式后勾选“设为默认显示方式”将持久化至 localStorage，下次打开页面自动按该模式展示</em>
+    </div>
+    <!-- 需求2-2-b-1：三个操作按钮仅在“表单模式”下显示 -->
+    <div id="formModeBtns" class="hidden flex gap-3">
+      <button class="btn" id="ab1">AI返奖率介绍</button>
+      <button class="btn" id="ab2">玩家保护配置</button>
+      <button class="btn" id="ab3">策略配置</button>
+    </div>
+  </div>
+
+  <!-- 需求2-2-b-2：快捷设置模式视图（3个Tab页：AI返奖率介绍 / 玩家保护配置 / 策略配置） -->
+  <div id="quickModeView" class="flex flex-col flex-1 min-h-0">
+    <div class="qtabs" id="qTabBar">
+      <div class="qtab on" data-qt="0">AI返奖率介绍</div>
+      <div class="qtab" data-qt="1">玩家保护配置</div>
+      <div class="qtab" data-qt="2">策略配置</div>
+    </div>
+    <div id="qTabBody" class="flex-1 overflow-auto p-5"></div>
+  </div>
+
+  <!-- 需求2-2-c：表单模式视图 -->
+  <div id="formModeView" class="hidden flex-col flex-1 min-h-0 pt-3">
+    <div class="tw">
+      <table>
+        <thead>
+          <tr>
+            <th>策略Id</th>
+            <th>地区</th>
+            <th>商户</th>
+            <th>策略类型<em class="dn">枚举：投注分段策略/会员层级策略；最多各1条，共最多2条</em></th>
+            <th>策略状态<em class="dn">已开启/已关闭；同时间最多仅1条可开启，可全部关闭</em></th>
+            <th>最低投注</th>
+            <th>目标返奖率</th>
+            <th>投注分段</th>
+            <th>最后操作人</th>
+            <th>最后操作时间</th>
+            <th>操作<em class="dn">隐藏绑定游戏按钮；最右侧增加开启/关闭按钮</em></th>
+          </tr>
+        </thead>
+        <tbody id="atb"></tbody>
+      </table>
+    </div>
+    <div class="pg" id="apg"></div>
+  </div>
+</section>
+
+<!-- 保护玩家记录 -->
 <section id="p2" class="hidden flex-col flex-1 min-h-0"><div class="p-4 flex flex-wrap gap-x-8 gap-y-3 items-center"><div class="f"><label>地区:</label><select><option>巴西</option></select></div><div class="f"><label>商户:</label><select><option>888</option></select></div><div class="f"><label>保护状态:</label><select id="gS"><option>全部</option><option>进行中</option><option>已结束</option></select></div><div class="f"><label>会员ID:</label><input id="gI" placeholder="请输入"></div><button class="btn" id="gr" style="background:var(--bg);color:var(--tx);border:1px solid var(--in)">重置</button><button class="btn" id="gq">查询</button></div><div class="flex justify-end px-4 pb-3"><button class="btn" id="gb" disabled style="opacity:.4">批量操作</button><em class="dn">仅对当页勾选且「进行中」的记录生效；未勾选时置灰</em></div><div class="tw"><table><thead><tr><th><input type="checkbox" id="ga"></th><th>序号</th><th>地区</th><th>商户</th><th>会员ID</th><th>首充时间</th><th>首充金额</th><th>执行策略<em class="dn">保护策略+保护时间，如“按时间，24 小时后解除”</em></th><th>结束时间<em class="dn">首笔成功存款(账变记录)起，至保护结束(到期/提前解除)</em></th><th>保护解除前游戏盈利<em class="dn">首充后首次下注至保护结束，游戏对局记录中结算状态=已结算的“游戏输赢”合计</em></th><th>保护解除前累计充值<em class="dn">首充后至保护结束，账变记录“存款”成功的账变金额合计</em></th><th>保护状态</th><th>备注<em class="dn">取会员列表-个人资料-备注</em></th><th>操作<em class="dn">仅「进行中」显示“解除保护”；二次确认，不可恢复；生效后状态=已结束</em></th></tr></thead><tbody id="gtb"></tbody></table></div><div class="pg" id="gpg"></div></section>
 </main></div>
+
 <script>
+/* ============================================================================
+ * 【控制开关】需求1：是否显示【子平台游戏配置】页面
+ * false = 全部隐藏（菜单、顶部Tab及默认入口均不显示，代码完整保留）
+ * true  = 恢复显示【子平台游戏配置】菜单与Tab页面
+ * ============================================================================ */
+const SHOW_SUB_PLATFORM_CONFIG = false;
+
 const $=s=>document.querySelector(s),PL=['PG','JDB','PP','TADA'],TY=['电子游戏','棋牌游戏','捕鱼游戏','体育游戏','视讯游戏','彩票游戏'];
 const POOL={电子游戏:['Fortune Tiger','Mahjong Ways','Gates of Olympus','Sweet Bonanza','Lucky Neko','Fortune Ox','Super Ace','Golden Empire'],棋牌游戏:['斗地主','炸金花','百人牛牛','德州扑克','十三水','抢庄牌九','二八杠','龙虎斗'],捕鱼游戏:['Happy Fishing','Dragon Fishing','Ocean King','Fish Hunter 2','Boom Legend','Mega Fishing','Jackpot Fishing','Bombing Fishing'],体育游戏:['足球竞猜','篮球竞猜','网球竞猜','电竞竞猜','棒球竞猜','冰球竞猜','排球竞猜','羽毛球竞猜'],视讯游戏:['百家乐','轮盘','骰宝','龙虎','21点','牛牛视讯','极速百家乐','火爆轮盘'],彩票游戏:['极速快三','五分时时彩','PK10','六合彩','极速赛车','幸运飞艇','11选5','双色球']};
-const LV=['新加层级自动填充','默认层级','黑名单','无优惠','10雷','不出款','刷子套利','无宝箱层级','100雷','200雷','500雷','1000雷','5000雷','10000雷','50000雷','无佣金'];const mk=(id,type,seg,r,op,ot,m,st='已开启')=>({id,type,seg,r,op,ot,m,st});
-const ST={'默认':mk(914,'投注分段策略',0,[[0,95,95]],'dayu888','2026-02-25 09:57:50'),'投注-1':mk(1164,'投注分段策略',0,[[0,95,95]],'admin888','2026-04-11 01:31:49'),'95':mk(1209,'投注分段策略',0,[[0,95,95]],'admin888','2026-11-10 11:31:47'),'111':mk(1398,'投注分段策略',1,[[0,97,97],[100,96.5,96.5]],'admin888','2026-11-12 21:47:41'),'会员分级':mk(1402,'会员层级策略',0,[[0,95,95]],'admin888','2026-11-12 21:45:24',[96,95,94,96.5,97,97,97,97,97,97,97,97,97,97,97,97])};
-const ALL=[];let n=0;const DEMO_ST=['默认','111','会员分级','投注-1','95']; PL.forEach((p,i)=>TY.forEach(t=>POOL[t].slice(i*2,i*2+2).forEach(g=>{n++;const bet=n%3?Math.round(((n*7919)%90000)/10+500):0,pay=bet?Math.round(bet*(.8+((n*13)%40)/100)):0;const st=n==1?'111':n==2?'会员分级':DEMO_ST[n%DEMO_ST.length];ALL.push({id:7880+n*8,p,t,g,bet,pay,rate:bet?+(pay/bet*100).toFixed(2):0,st,iv:n%7==0?'开启':'关闭',op:'',ot:''})})));
+const LV=['新加层级自动填充','默认层级','黑名单','无优惠','10雷','不出款','刷子套利','无宝箱层级','100雷','200雷','500雷','1000雷','5000雷','10000雷','50000雷','无佣金'];
+const mk=(id,type,seg,r,op,ot,m,st='已开启')=>({id,type,seg,r,op,ot,m,st});
+
+/* 需求2-2-a & 2-2-c：站点主策略库（最多2条：1条投注分段策略 + 1条会员层级策略；初始默认为空以体现“暂无配置/暂无数据”，支持新增与互斥启停） */
+const ST={};
+
+const ALL=[];let n=0;const DEMO_ST=['默认','111','会员分级','投注-1','95'];
+PL.forEach((p,i)=>TY.forEach(t=>POOL[t].slice(i*2,i*2+2).forEach(g=>{n++;const bet=n%3?Math.round(((n*7919)%90000)/10+500):0,pay=bet?Math.round(bet*(.8+((n*13)%40)/100)):0;const st=n==1?'111':n==2?'会员分级':DEMO_ST[n%DEMO_ST.length];ALL.push({id:7880+n*8,p,t,g,bet,pay,rate:bet?+(pay/bet*100).toFixed(2):0,st,iv:n%7==0?'开启':'关闭',op:'',ot:''})})));
 let F=[],sort={k:null,d:0},cur=1,size=10;
 const opt=(a,all)=>(all?'<option>全部</option>':'')+a.map(x=>`<option>${x}</option>`).join('');
 $('#fP').innerHTML=opt(PL,1);$('#fT').innerHTML=opt(TY,1);$('#fT').value='电子游戏';
@@ -61,7 +160,7 @@ $('#fP').onchange=$('#fT').onchange=games;games();
 function query(){const p=$('#fP').value,t=$('#fT').value,g=$('#fG').value,v=$('#fV').value,i=$('#fI').value.trim(),s=$('#fS').value.trim();
 F=ALL.filter(r=>(p=='全部'||r.p==p)&&(t=='全部'||r.t==t)&&(g=='全部'||r.g==g)&&(v=='全部'||r.iv==v)&&(!i||String(r.id).includes(i))&&(!s||r.st.includes(s)));cur=1;draw()}
 function draw(){let a=[...F];if(sort.k&&sort.d)a.sort((x,y)=>(x[sort.k]-y[sort.k])*sort.d);const pages=Math.max(1,Math.ceil(a.length/size));cur=Math.min(cur,pages);
-$('#tb').innerHTML=a.length?a.slice((cur-1)*size,cur*size).map(r=>{const st=ST[r.st],isMem=st.type=='会员层级策略',hasSeg=!isMem&&(st.seg||st.r.length>1);const targetHtml=isMem?`<a class="lk underline mem-view-lk" data-st="${r.st}">查看</a>`:st.r[0][1];const segHtml=isMem?'-':(hasSeg?'是':'否');return `<tr><td>巴西</td><td>888</td><td>${r.id}</td><td>${r.p}</td><td>${r.t}</td><td>${r.g}</td><td>${r.bet}</td><td>${r.pay}</td><td><a class="lk underline rate-lk" data-id="${r.id}">${r.rate.toFixed(2)}%</a></td><td>${targetHtml}</td><td>${segHtml}</td><td>${r.iv}</td><td>${r.st}</td><td>${r.op}</td><td>${r.ot}</td><td class="ops" data-id="${r.id}"><span title="采用策略">✎</span><span title="返奖率说明">◉</span><span title="实时派彩">⊞</span></td></tr>`}).join(''):'<tr><td colspan="16" style="padding:80px;color:#999">暂无数据</td></tr>';
+$('#tb').innerHTML=a.length?a.slice((cur-1)*size,cur*size).map(r=>{const st=ST[r.st]||{type:'投注分段策略',seg:0,r:[[0,96,96]]},isMem=st.type=='会员层级策略',hasSeg=!isMem&&(st.seg||st.r.length>1);const targetHtml=isMem?`<a class="lk underline mem-view-lk" data-st="${r.st}">查看</a>`:st.r[0][1];const segHtml=isMem?'-':(hasSeg?'是':'否');return `<tr><td>巴西</td><td>888</td><td>${r.id}</td><td>${r.p}</td><td>${r.t}</td><td>${r.g}</td><td>${r.bet}</td><td>${r.pay}</td><td><a class="lk underline rate-lk" data-id="${r.id}">${r.rate.toFixed(2)}%</a></td><td>${targetHtml}</td><td>${segHtml}</td><td>${r.iv}</td><td>${r.st}</td><td>${r.op}</td><td>${r.ot}</td><td class="ops" data-id="${r.id}"><span title="采用策略">✎</span><span title="返奖率说明">◉</span><span title="实时派彩">⊞</span></td></tr>`}).join(''):'<tr><td colspan="16" style="padding:80px;color:#999">暂无数据</td></tr>';
 let ps=pages<=7?[...Array(pages)].map((_,i)=>i+1):cur<=4?[1,2,3,4,5,'…',pages]:cur>=pages-3?[1,'…',...[...Array(5)].map((_,i)=>pages-4+i)]:[1,'…',cur-1,cur,cur+1,'…',pages];
 $('#pg').innerHTML=`<span>共 ${a.length} 条数据</span>`+ps.map(x=>x=='…'?'<span>•••</span>':`<b class="${x==cur?'on':''}" data-n="${x}">${x}</b>`).join('')+`<b data-n="${cur+1}">›</b><select id="ps">${[10,20,50].map(x=>`<option value="${x}" ${x==size?'selected':''}>${x} 条/页</option>`).join('')}</select><span>跳至</span><input id="jp" style="width:56px;min-width:0"><span>页</span>`;
 document.querySelectorAll('.srt').forEach(e=>{const act=sort.k==e.dataset.k?sort.d:0;e.querySelector('i').textContent=act==1?'▲':act==-1?'▼':'▲▼';e.title=act==1?'当前升序，点击降序':act==-1?'当前降序，点击取消排序':'点击升序'})}
@@ -69,13 +168,24 @@ $('#pg').onclick=e=>{const n=+e.target.dataset.n;if(n){cur=n;draw()}};
 $('#pg').onchange=e=>{if(e.target.id=='ps'){size=+e.target.value;cur=1}else if(e.target.id=='jp')cur=Math.max(1,+e.target.value||1);draw()};
 document.querySelectorAll('.srt').forEach(e=>e.onclick=()=>{const k=e.dataset.k;sort=sort.k==k?{k,d:sort.d==1?-1:sort.d==-1?0:1}:{k,d:1};draw()});
 $('#qb').onclick=query;query();
-function modal(h,w){const m=document.createElement('div');m.className='mask';m.innerHTML=`<div class="dlg" style="width:${w}px">${h}<span class="x">✕</span></div>`;m.querySelector('.x').onclick=()=>m.remove();document.body.append(m);return m}
+
+/* ===== 层级遮罩弹窗管理（确保多层提示窗口遮罩不重叠冲突） ===== */
+let zIdx=1000;
+function modal(h,w){
+  zIdx+=10;
+  const m=document.createElement('div');
+  m.className='mask';
+  m.style.zIndex=zIdx;
+  m.innerHTML=`<div class="dlg" style="width:${w}px">${h}<span class="x">✕</span></div>`;
+  m.querySelector('.x').onclick=()=>m.remove();
+  document.body.append(m);
+  return m;
+}
 const now=()=>new Date(Date.now()-3*36e5).toISOString().replace('T',' ').slice(0,19);
-function viewMemberStrategy(n){const st=ST[n],mList=st.m||LV.map(_=>97);modal(`<div class="mb-4 text-base font-semibold">查看返奖率（策略：${n}）</div><div class="mb-3 text-xs opacity-75">策略类型：${st.type}</div><div class="flex gap-4 mb-2 font-semibold"><span style="width:170px">会员层级</span><span style="width:110px">目标返奖率</span><span>预期实际返奖率</span></div><div style="max-height:46vh;overflow:auto">${LV.map((l,i)=>`<div class="flex gap-4 mb-3"><input disabled value="${l}" style="width:170px"><input disabled value="${mList[i]}" style="width:110px;min-width:0"><input disabled value="${mList[i]}" style="width:110px"></div>`).join('')}</div>`,760)}
+function viewMemberStrategy(n){const st=ST[n],mList=st.m||LV.map(_=>96);modal(`<div class="mb-4 text-base font-semibold">查看返奖率</div><div class="mb-3 text-xs opacity-75">策略类型：${st.type}</div><div class="flex gap-4 mb-2 font-semibold"><span style="width:170px">会员层级</span><span style="width:110px">目标返奖率</span></div><div style="max-height:46vh;overflow:auto">${LV.map((l,i)=>`<div class="flex gap-4 mb-3"><input disabled value="${l}" style="width:170px"><input disabled value="${mList[i]}" style="width:110px;min-width:0"></div>`).join('')}</div>`,620)}
 $('#tb').onclick=e=>{const memLk=e.target.closest('.mem-view-lk');if(memLk){viewMemberStrategy(memLk.dataset.st);return}const lk=e.target.closest('.rate-lk');if(lk){const r=ALL.find(x=>x.id==lk.dataset.id);if(r)pay(r);return}const td=e.target.closest('.ops');if(!td||e.target.tagName!='SPAN')return;const r=ALL.find(x=>x.id==td.dataset.id),i=[...td.children].indexOf(e.target);[useS,rateInfo,pay][i](r)};
-function segTb(s){const st=ST[s];if(st.type=='会员层级策略'){const mList=st.m||LV.map(_=>97);return `<div class="my-3"><b>策略类型:</b> <span class="ml-3">会员层级策略</span></div><div class="flex gap-4 mb-2 font-semibold"><span style="width:170px">会员层级</span><span style="width:110px">目标返奖率</span><span>预期实际返奖率</span></div><div style="max-height:42vh;overflow:auto">${LV.map((l,i)=>`<div class="flex gap-4 mb-2.5"><input disabled value="${l}" style="width:170px"><input disabled value="${mList[i]}" style="width:110px;min-width:0"><input disabled value="${mList[i]}" style="width:110px"></div>`).join('')}</div>`}const hasSeg=st.seg||st.r.length>1;return `<div class="my-3"><b>策略游戏返奖率:</b> <span class="ml-3">${hasSeg?'有投注分段':'无投注分段'}</span></div><table><tr><th>最低投注</th><th>目标返奖率</th><th>预期实际返奖率</th></tr>${st.r.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td>${x[2]}</td></tr>`).join('')}</table>`}
-function useS(r){const m=modal(`<div class="mb-3"><b>游戏使用策略:</b> <a class="lk text-xs ml-4" id="gl">查看该策略配置 ›</a></div><select id="us" style="width:220px">${opt(Object.keys(ST))}</select><div id="sd"></div><div class="text-center mt-24"><button class="btn" id="sv">保存配置</button><em class="dn">策略下拉来源=AI返奖率配置主表策略名称；保存后该游戏按所选策略生效，写入最后操作人/时间</em></div>`,760);const u=m.querySelector('#us'),sh=()=>m.querySelector('#sd').innerHTML=segTb(u.value);u.value=r.st;u.onchange=sh;sh();m.querySelector('#gl').onclick=()=>{m.remove();goto(1,'子平台游戏配置','策略ID',ST[u.value].id,u.value)};
-m.querySelector('#sv').onclick=()=>{r.st=u.value;r.op='admin888';r.ot=now();m.remove();draw()}}
+function segTb(s){const st=ST[s];if(st.type=='会员层级策略'){const mList=st.m||LV.map(_=>96);return `<div class="my-3"><b>策略类型:</b> <span class="ml-3">会员层级策略</span></div><div class="flex gap-4 mb-2 font-semibold"><span style="width:170px">会员层级</span><span style="width:110px">目标返奖率</span></div><div style="max-height:42vh;overflow:auto">${LV.map((l,i)=>`<div class="flex gap-4 mb-2.5"><input disabled value="${l}" style="width:170px"><input disabled value="${mList[i]}" style="width:110px;min-width:0"></div>`).join('')}</div>`}const hasSeg=st.seg||st.r.length>1;return `<div class="my-3"><b>策略游戏返奖率:</b> <span class="ml-3">${hasSeg?'有投注分段':'无投注分段'}</span></div><table><tr><th>最低投注</th><th>目标返奖率</th></tr>${st.r.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td></tr>`).join('')}</table>`}
+function useS(r){const ks=Object.keys(ST);if(!ks.length){toast('暂无策略配置');return}const m=modal(`<div class="mb-3"><b>游戏使用策略:</b> <a class="lk text-xs ml-4" id="gl">查看该策略配置 ›</a></div><select id="us" style="width:220px">${opt(ks)}</select><div id="sd"></div><div class="text-center mt-24"><button class="btn" id="sv">保存配置</button></div>`,760);const u=m.querySelector('#us'),sh=()=>m.querySelector('#sd').innerHTML=segTb(u.value);if(ST[r.st])u.value=r.st;u.onchange=sh;sh();m.querySelector('#gl').onclick=()=>{m.remove();goto(1,'子平台游戏配置','策略ID',ST[u.value].id,u.value)};m.querySelector('#sv').onclick=()=>{r.st=u.value;r.op='admin888';r.ot=now();m.remove();draw()}}
 const BASE={PG:0,JDB:.5,PP:1,TADA:1.5};
 function rateInfo(r){const a=[97,96.5,96,95.5,95,94.5,94].map(x=>x-BASE[r.p]);modal(`<div class="mb-4 text-base font-semibold">${r.g}-返奖率说明:</div><table><tr><th>配置目标返奖率%</th><th>3组5000万大数据模拟返奖率平均值%</th></tr>${a.map(x=>`<tr><td>${x}</td><td>${x}</td></tr>`).join('')}</table>`,760)}
 function pay(r){const m=modal(`<div class="mb-4 text-base font-semibold">返奖率</div><div class="f mb-3"><label>时间段:</label><input id="dr" readonly style="width:230px"><select id="rg">${['当天','最近3天','最近7天','最近15天','最近30天'].map(x=>`<option>${x}</option>`).join('')}</select><button class="btn" id="rq">查询</button></div><div id="pb"></div>`,760);
@@ -84,48 +194,532 @@ const go=()=>{const k=D[m.querySelector('#rg').value],t=Date.now()-3*36e5,ds=[..
 const rows=ds.map((d,i)=>{const b=r.bet?Math.round(r.bet*(.6+((i*37+r.id)%10)/10)):0,p=b?Math.round(b*(.85+((i*11+r.id)%25)/100)):0;return{d,b,p,r:b?+(p/b*100).toFixed(2):0}}),mx=Math.max(2,...rows.map(x=>x.r));
 m.querySelector('#pb').innerHTML=`<div style="max-height:190px;overflow:auto"><table><tr><th>日期时间</th><th>投注</th><th>派彩</th><th>返奖率</th></tr>${rows.map(x=>`<tr><td>${x.d}</td><td>${x.b}</td><td>${x.p}</td><td>${x.r.toFixed(2)}%</td></tr>`).join('')}</table></div><div class="flex items-end gap-1 mt-6 border-b border-l px-2" style="height:170px">${rows.map(x=>`<div class="flex-1 flex flex-col justify-end items-center h-full" title="${x.d} ${x.r}%"><div style="width:60%;max-width:24px;background:#4f9ddb;height:${x.r/mx*100}%"></div></div>`).join('')}</div><div class="text-center text-xs mt-2"><span style="background:#4f9ddb;display:inline-block;width:24px;height:10px"></span> 返奖率(%) <span class="opacity-60">（Y轴 0%–${mx}%）</span></div>`};
 m.querySelector('#rq').onclick=go;go()}
-/* ===== AI游戏返奖率配置 ===== */
-const FLAGS={bind:false,profit:false};/* 预留功能开关：bind=绑定游戏；profit=玩家保护「按游戏盈利」。改为 true 即显示 */
-const RT=[94,94.5,95,95.5,96,96.5,97],PROT={on:false,st:'按时间',rate:96.5,hrs:24,amt:'0.00',tp:'游戏盈利金额',rel:'0.00'};
-const toast=m=>{const t=document.createElement('div');t.textContent=m;t.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:8px 18px;border-radius:4px;z-index:3000';document.body.append(t);setTimeout(()=>t.remove(),1800)};
+
+/* ===== AI游戏返奖率配置（快捷模式 + 表单模式） ===== */
+const FLAGS={bind:true,profit:false};
+const RT=[94,94.5,95,95.5,96,96.5,97];
+/* 需求2-3：保护设置“执行返奖率”默认值由96.5%改成96%，保护时间默认值由24改成48 */
+const PROT={on:false,st:'按时间',rate:96,hrs:48,amt:'0.00',tp:'游戏盈利金额',rel:'0.00'};
+
+const toast=m=>{
+  const t=document.createElement('div');
+  t.textContent=m;
+  t.style.cssText='position:fixed;top:24px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:9px 22px;border-radius:4px;z-index:9999;box-shadow:0 4px 12px rgba(0,0,0,.25)';
+  document.body.append(t);
+  setTimeout(()=>t.remove(),1800);
+};
 const bad=(el,m)=>{el.classList.add('bd2');el.closest('.fi').querySelector('.er').textContent=m;return 1},clr=M=>{M.querySelectorAll('.er').forEach(e=>e.textContent='');M.querySelectorAll('.bd2').forEach(e=>e.classList.remove('bd2'))};
+
+const AI_INTRO_HTML=['老虎机是一种广受欢迎的赌博游戏，其返奖率（Return to Player, RTP）是衡量其吸引力和公平性的重要指标。返奖率指的是玩家在老虎机上投注的金额中，平均会有多少比例返还给玩家。通常，老虎机的返奖率在94%到97%之间，这意味着如果一个老虎机的返奖率是97%，玩家平均每投注100元，就会有97元返还给玩家，剩下的3元则是赌场的利润。','随着人工智能（AI）技术的发展，AI老虎机应运而生。AI老虎机利用先进的算法和数据分析技术，优化游戏体验和返奖率。通过分析玩家的行为和偏好，AI老虎机可以动态调整游戏参数，提供更个性化的游戏体验，同时确保游戏的公平性和透明度。','AI老虎机的高返奖率不仅吸引了更多的玩家，也提高了玩家的满意度和留存率。玩家在享受游戏乐趣的同时，也有更高的机会赢得奖金。这种技术的应用不仅提升了老虎机的娱乐性，还推动了整个赌博行业的技术进步。','总之，AI老虎机的返奖率是衡量其吸引力和公平性的重要指标，随着技术的不断进步，AI老虎机将为玩家带来更加丰富和公平的游戏体验。','<b>AI老虎机返奖率实际案例</b>','<b>案例一：</b>某知名在线赌场的AI老虎机 某知名在线赌场引入了AI技术来优化其老虎机的返奖率。通过分析玩家的游戏行为和投注模式，AI系统能够动态调整游戏参数，确保返奖率在94%到97%之间。这不仅提高了玩家的满意度，还增加了玩家的留存率。数据显示，自从引入AI技术后，该赌场的老虎机游戏收入增加了约15%。','<b>案例二：</b>某移动游戏公司的AI老虎机 一家移动游戏公司开发了一款基于AI的老虎机游戏。该游戏利用机器学习算法，实时分析玩家的游戏数据，并根据玩家的偏好调整游戏的难度和返奖率。结果显示，这款游戏的玩家平均游戏时间增加了20%，而且玩家的满意度评分也显著提高。','<b>案例三：</b>某实体赌场的AI老虎机 某实体赌场在其老虎机中引入了AI技术，以提高游戏的公平性和透明度。AI系统能够监控和分析每台老虎机的运行情况，确保返奖率保持在预定范围内。自从采用AI技术后，该赌场的投诉率下降了30%，而且玩家对游戏的信任度也有所提升。'].map(t=>`<p class="mb-4">${t}</p>`).join('');
+
+/* 需求2-2-b：显示模式状态与本地默认存储（默认：快捷模式） */
+const MODE_STORAGE_KEY='site_ai_rtp_default_mode_v1';
+let defaultSavedMode=localStorage.getItem(MODE_STORAGE_KEY)||'quick'; // 'quick' | 'form'
+let aiViewMode=defaultSavedMode; // 当前显示模式
+let quickTabIdx=0; // 0: AI返奖率介绍, 1: 玩家保护配置, 2: 策略配置
 let ai={type:'全部',name:'',cur:1,size:10};
-function aiDraw(){const a=Object.entries(ST).filter(([n,s])=>s.st=='已开启'&&(ai.type=='全部'||s.type==ai.type)&&(!ai.name||n.includes(ai.name))).sort((x,y)=>x[1].id-y[1].id),pages=Math.max(1,Math.ceil(a.length/ai.size));ai.cur=Math.min(ai.cur,pages);
-$('#atb').innerHTML=a.length?a.slice((ai.cur-1)*ai.size,ai.cur*ai.size).map(([n,s])=>{const m=s.type=='会员层级策略';return `<tr data-k="${n}"><td>${s.id}</td><td>巴西</td><td>888</td><td>${s.type}</td><td>${n}</td><td>AI</td><td>${m?'-':0}</td><td>${m?'<a class="lk" data-a="vm">查看</a>':s.r[0][1]}</td><td>${m?'-':s.seg?'<a class="lk" data-a="vs">是</a>':'否'}</td><td>${s.op}</td><td>${s.ot}</td><td class="ops"><span data-a="ed" title="编辑">✎</span>${FLAGS.bind?'<span data-a="bd" title="绑定游戏">▯</span>':''}</td></tr>`}).join(''):'<tr><td colspan="12" style="padding:80px;color:#999">暂无数据</td></tr>';
-$('#apg').innerHTML=`<span>共 ${a.length} 条数据</span>`+[...Array(pages)].map((_,i)=>`<b data-p="${i+1}" class="${i+1==ai.cur?'on':''}">${i+1}</b>`).join('')+`<select id="asz">${[10,20,50].map(x=>`<option value="${x}" ${x==ai.size?'selected':''}>${x} 条/页</option>`).join('')}</select>`}
-$('#apg').onclick=e=>{if(e.target.dataset.p){ai.cur=+e.target.dataset.p;aiDraw()}};$('#apg').onchange=e=>{ai.size=+e.target.value;ai.cur=1;aiDraw()};
+
+/* 需求2-2-c-6：检查【策略配置】按钮是否可用（最多可配置2条：投注分段策略和会员层级策略各1条；仅添加1条或0条时可用，2条均添加后置灰不可用） */
+function canAddMoreStrategy(){
+  const list=Object.values(ST);
+  const hasSeg=list.some(s=>s.type=='投注分段策略');
+  const hasMem=list.some(s=>s.type=='会员层级策略');
+  return !(hasSeg && hasMem) && list.length<2;
+}
+function updateStrategyCfgBtnState(){
+  const ok=canAddMoreStrategy();
+  const btn=$('#ab3');
+  if(btn){
+    btn.disabled=!ok;
+    btn.title=ok?'点击新增策略配置':'投注分段策略与会员层级策略均已配置完成（最多2条），请在表单中修改或启停';
+  }
+}
+
+/* 需求2-2-c-3：表单模式下策略开启/关闭切换（同时间最多1条开启，可全部关闭；若已有另1条开启则弹出确认提示） */
+function toggleSiteStrategyStatus(key){
+  const target=ST[key];
+  if(!target)return;
+  // 1) 当前已开启 -> 点击关闭，允许两条策略同时处于“已关闭”
+  if(target.st=='已开启'){
+    target.st='已关闭';
+    target.op='admin888';
+    target.ot=now();
+    aiDraw();
+    toast('策略已关闭');
+    return;
+  }
+  // 2) 当前已关闭 -> 检查另一条是否处于“已开启”（均关闭时可直接开启任意一条）
+  const otherEntry=Object.entries(ST).find(([k,s])=>k!==key && s.st=='已开启');
+  if(otherEntry){
+    const otherSt=otherEntry[1];
+    const msg=otherSt.type=='投注分段策略'
+      ?'该策略开启，则“投注分段策略”将关闭'
+      :'该策略开启，则“会员层级策略”将关闭';
+    const C=modal(`<div class="mb-4 text-base font-semibold">提示</div>
+      <p class="mb-6">${msg}</p>
+      <div class="text-right">
+        <button class="btn-ghost mr-2" id="stCn">取消</button>
+        <button class="btn" id="stOk">确认</button>
+      </div>`,460);
+    C.querySelector('#stCn').onclick=()=>C.remove();
+    C.querySelector('#stOk').onclick=()=>{
+      otherSt.st='已关闭';
+      otherSt.op='admin888';
+      otherSt.ot=now();
+      target.st='已开启';
+      target.op='admin888';
+      target.ot=now();
+      C.remove();
+      aiDraw();
+      toast('策略已启用');
+    };
+  }else{
+    target.st='已开启';
+    target.op='admin888';
+    target.ot=now();
+    aiDraw();
+    toast('策略已启用');
+  }
+}
+
+/* 需求2-2-c：表单模式渲染（删除策略名称、默认干预改为策略状态、返奖率改为目标返奖率、最多2条、未添加显示暂无数据/暂无配置） */
+function aiDraw(){
+  updateStrategyCfgBtnState();
+  const entries=Object.entries(ST).sort((x,y)=>x[1].id-y[1].id).slice(0,2);
+  if(!entries.length){
+    $('#atb').innerHTML='<tr><td colspan="11" style="padding:80px;color:#999">暂无数据（暂无配置）</td></tr>';
+    $('#apg').innerHTML='<span>共 0 条数据</span>';
+    return;
+  }
+  $('#atb').innerHTML=entries.map(([n,s])=>{
+    const m=s.type=='会员层级策略',isOn=s.st=='已开启';
+    return `<tr data-k="${n}">
+      <td>${s.id}</td>
+      <td>巴西</td>
+      <td>888</td>
+      <td>${s.type}</td>
+      <td>${isOn?'<span class="tag-on">已开启</span>':'<span class="tag-off">已关闭</span>'}</td>
+      <td>${m?'-':0}</td>
+      <td>${m?'<a class="lk" data-a="vm">查看</a>':s.r[0][1]}</td>
+      <td>${m?'-':s.seg?'<a class="lk" data-a="vs">是</a>':'否'}</td>
+      <td>${s.op}</td>
+      <td>${s.ot}</td>
+      <td class="ops" style="white-space:nowrap">
+        <span data-a="ed" title="编辑">✎</span>
+        <span class="text-xs lk" data-a="tg">${isOn?'关闭':'开启'}</span>
+      </td>
+    </tr>`;
+  }).join('');
+  $('#apg').innerHTML=`<span>共 ${entries.length} 条数据</span><b class="on">1</b>`;
+}
+$('#apg').onclick=e=>{if(e.target.dataset.p){ai.cur=+e.target.dataset.p;aiDraw()}};
+$('#apg').onchange=e=>{ai.size=+e.target.value;ai.cur=1;aiDraw()};
 $('#aq').onclick=()=>{ai.type=$('#aT').value;ai.name=$('#aN').value.trim();ai.cur=1;aiDraw()};
-$('#atb').onclick=e=>{const a=e.target.dataset.a;if(!a)return;const n=e.target.closest('tr').dataset.k;({ed:()=>editor(n),vs:()=>editor(n,1),vm:()=>editor(n,1),bd:()=>bind(n)})[a]()};
-$('#ab1').onclick=()=>modal('<div class="mb-4 text-base font-semibold">AI返奖率简介</div>'+['老虎机是一种广受欢迎的赌博游戏，其返奖率（Return to Player, RTP）是衡量其吸引力和公平性的重要指标。返奖率指的是玩家在老虎机上投注的金额中，平均会有多少比例返还给玩家。通常，老虎机的返奖率在94%到97%之间，这意味着如果一个老虎机的返奖率是97%，玩家平均每投注100元，就会有97元返还给玩家，剩下的3元则是赌场的利润。','随着人工智能（AI）技术的发展，AI老虎机应运而生。AI老虎机利用先进的算法和数据分析技术，优化游戏体验和返奖率。通过分析玩家的行为和偏好，AI老虎机可以动态调整游戏参数，提供更个性化的游戏体验，同时确保游戏的公平性和透明度。','AI老虎机的高返奖率不仅吸引了更多的玩家，也提高了玩家的满意度和留存率。玩家在享受游戏乐趣的同时，也有更高的机会赢得奖金。这种技术的应用不仅提升了老虎机的娱乐性，还推动了整个赌博行业的技术进步。','总之，AI老虎机的返奖率是衡量其吸引力和公平性的重要指标，随着技术的不断进步，AI老虎机将为玩家带来更加丰富和公平的游戏体验。','<b>AI老虎机返奖率实际案例</b>','<b>案例一：</b>某知名在线赌场的AI老虎机 某知名在线赌场引入了AI技术来优化其老虎机的返奖率。通过分析玩家的游戏行为和投注模式，AI系统能够动态调整游戏参数，确保返奖率在94%到97%之间。这不仅提高了玩家的满意度，还增加了玩家的留存率。数据显示，自从引入AI技术后，该赌场的老虎机游戏收入增加了约15%。','<b>案例二：</b>某移动游戏公司的AI老虎机 一家移动游戏公司开发了一款基于AI的老虎机游戏。该游戏利用机器学习算法，实时分析玩家的游戏数据，并根据玩家的偏好调整游戏的难度和返奖率。结果显示，这款游戏的玩家平均游戏时间增加了20%，而且玩家的满意度评分也显著提高。','<b>案例三：</b>某实体赌场的AI老虎机 某实体赌场在其老虎机中引入了AI技术，以提高游戏的公平性和透明度。AI系统能够监控和分析每台老虎机的运行情况，确保返奖率保持在预定范围内。自从采用AI技术后，该赌场的投诉率下降了30%，而且玩家对游戏的信任度也有所提升。'].map(t=>`<p class="mb-4">${t}</p>`).join(''),900);
-$('#ab3').onclick=()=>editor(null);$('#ab2').onclick=()=>prot();
-function editor(n,ro){const isNew=n===null,src=isNew?null:ST[n],d={type:isNew?'投注分段策略':src.type,rows:isNew?[[0,95]]:src.r.map(x=>[x[0],x[1]]),m:isNew?LV.map(_=>97):[...(src.m||LV.map(_=>97))]};
-const mem0=!isNew&&src.type=='会员层级策略';
-const M=modal(`<div class="mb-4 text-base font-semibold">${ro?(mem0?'查看返奖率':'预览策略'):isNew?'新增策略':'编辑策略'}</div><div class="fi mb-3"><b>策略名称:</b> <input id="en" placeholder="请输入" ${isNew?'':'disabled'} value="${isNew?'':n}" style="width:300px"><div class="er"></div></div><div class="mb-3"><b>策略类型:</b> <select id="et" ${ro?'disabled':''}>${opt(['投注分段策略','会员层级策略'])}</select></div><div id="eb"></div>`,780);
-const et=M.querySelector('#et'),eb=M.querySelector('#eb');et.value=d.type;
-const rb=()=>{eb.innerHTML=d.type=='会员层级策略'?`<div class="flex gap-4 mb-2 font-semibold"><span style="width:170px">会员层级</span><span style="width:100px">目标返奖率</span><span>预期实际返奖率</span></div><div style="max-height:48vh;overflow:auto">${LV.map((l,i)=>`<div class="flex gap-4 mb-3"><input disabled value="${l}" style="width:170px"><select data-m="${i}" style="width:100px;min-width:0" ${ro?'disabled':''}>${RT.map(v=>`<option ${v==d.m[i]?'selected':''}>${v}</option>`).join('')}</select><input disabled value="${d.m[i]}" style="width:100px"></div>`).join('')}</div>${ro?'':'<div class="text-center mt-4"><button class="btn" id="es">保存配置</button></div>'}`:`${ro?'':'<div class="text-right mb-2"><button class="btn" id="ea">新增投注分段及目标返奖率+</button></div>'}<table><tr><th>最低投注</th><th>目标返奖率</th><th>预期实际返奖率</th>${ro?'':'<th>操作</th>'}</tr>${d.rows.map((x,i)=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td>${x[1]}</td>${ro?'':`<td class="ops"><span data-e="${i}" title="编辑">✎</span><span data-d="${i}" title="删除" style="cursor:${i?'pointer':'not-allowed'};opacity:${i?1:.3};color:${i?'#e5321f':'inherit'}">🗑</span></td>`}</tr>`).join('')}</table>${ro?'':'<div class="text-center mt-6"><button class="btn" id="es">保存配置</button></div>'}`};rb();
-et.onchange=()=>{d.type=et.value;rb()};eb.onchange=e=>{const i=e.target.dataset.m;if(i!=null){d.m[i]=+e.target.value;rb()}};
-const sub=i=>{const ed=i!=null,S=modal(`<div class="mb-4 text-base font-semibold">${ed?'编辑':'新增'}</div><div class="fi mb-3"><label>最低投注</label><input id="sm" placeholder="请输入" ${ed?'disabled':''} value="${ed?d.rows[i][0]:''}"><div class="er"></div></div><div class="fi mb-3"><label>目标返奖率(%)</label><select id="sr"><option value="">请选择</option>${RT.map(v=>`<option ${ed&&d.rows[i][1]==v?'selected':''}>${v}</option>`).join('')}</select><div class="er"></div></div><div class="text-center"><button class="btn" id="so">确定</button><em class="dn">最低投注>0，整数或≤2位小数，不可与已有重复(提示“投注金额重复”)；目标返奖率94-97步长0.5；预期实际=目标</em></div>`,460);
-S.querySelector('#so').onclick=()=>{clr(S);const sm=S.querySelector('#sm'),sr=S.querySelector('#sr'),v=sm.value.trim();let b=0;
-if(!ed){if(!v)b=bad(sm,'请输入最低投注');else if(!/^\d+(\.\d{1,2})?$/.test(v)||+v<=0)b=bad(sm,'最低投注需大于0，仅支持整数或最多2位小数');else if(d.rows.some(x=>x[0]==+v))b=bad(sm,'投注金额重复')}
-if(!sr.value)b=bad(sr,'请选择目标返奖率');if(b)return;
-if(ed)d.rows[i][1]=+sr.value;else d.rows.push([+v,+sr.value]);d.rows.sort((x,y)=>x[0]-y[0]);S.remove();rb()}};
-eb.onclick=e=>{const t=e.target;if(t.id=='ea')sub(null);else if(t.dataset.e!=null)sub(+t.dataset.e);else if(t.dataset.d>0)confirm('确认删除该投注分段？')&&(d.rows.splice(+t.dataset.d,1),rb());
-else if(t.id=='es'){clr(M);const en=M.querySelector('#en'),nm=isNew?en.value.trim():n;if(!nm)return bad(en,'请输入策略名称');if(isNew&&ST[nm])return bad(en,'策略名称已存在');
-const mem=d.type=='会员层级策略',rows=[...d.rows].sort((x,y)=>x[0]-y[0]);
-ST[nm]=mk(isNew?Math.max(...Object.values(ST).map(s=>s.id))+1:src.id,d.type,!mem&&rows.length>1?1:0,mem?[[0,d.m[1],d.m[1]]]:rows.map(x=>[x[0],x[1],x[1]]),'admin888',now(),mem?d.m:undefined);M.remove();aiDraw();draw();toast('保存成功')}}}
-function prot(){const P=PROT,M=modal(`<div class="mb-4 text-base font-semibold">保护设置 <a class="lk text-xs ml-4" id="pgl">查看保护玩家记录 ›</a></div><div class="mb-3"><label>商户:</label><input disabled value="888" style="width:300px"></div><div class="mb-3"><label>新手保护开关:</label><input type="checkbox" id="pw" ${P.on?'checked':''}> <span style="color:#e5321f" id="pwt"></span></div><div class="mb-3"><label>保护策略:</label><select id="pst">${opt(FLAGS.profit?['按时间','按游戏盈利']:['按时间'])}</select></div><div class="mb-3"><label>保护对象:</label><select><option>首充用户</option></select></div><div class="mb-3"><label>执行配置方案:</label><select><option>默认配置</option></select></div><div class="mb-3 fi"><label>执行返奖率(%):</label><select id="pr">${RT.map(v=>`<option ${v==P.rate?'selected':''}>${v}</option>`).join('')}</select><div class="er"></div></div><div id="pf"></div><div class="text-center mt-4"><button class="btn" id="po">确定</button><em class="dn">必填：保护时间1-999正整数；执行返奖率94-97步长0.5；商户由总控下发只读</em></div>`,640);
-const pst=M.querySelector('#pst'),pf=M.querySelector('#pf'),sw=()=>M.querySelector('#pwt').textContent=M.querySelector('#pw').checked?'':'关闭后，商户玩家保护功能无效，所有玩家走正常的返奖率策略';pst.value=P.st;M.querySelector('#pw').onchange=sw;sw();M.querySelector('#pgl').onclick=()=>{M.remove();goto(2,'AI游戏返奖率配置','商户','888')};
-const pr=()=>{const g=pst.value=='按游戏盈利';pf.innerHTML=(g?'<div class="mb-2"><b>解除保护(用户触碰以下条件时，解除保护)</b></div>':'')+`<div class="fi mb-3"><label>保护时间(小时)</label><input id="ph" value="${P.hrs}" placeholder="请输入1-999的整数" style="width:300px"><div class="er"></div></div>`+(g?`<div class="fi mb-3"><label>首充金额(>=)</label><input disabled value="0.00" style="width:90px;min-width:0"> <select id="pt" style="min-width:0"><option>游戏盈利金额</option><option>游戏盈利比例</option></select> <input id="pa" value="${P.rel}" style="width:90px;min-width:0"><div class="er"></div></div><div class="er" style="line-height:1.7">首充用户默认执行配置的返奖率，当达到以下指定条件即解除保护。<br>1. 游戏盈利金额：即首充用户游戏盈利达到配置金额时，解除保护。<br>2. 游戏盈利比例：游戏盈利金额达到首充金额的指定比例（比如充值100，希望游戏盈利达到10即解除保护，则填10%即可），解除保护。<br>3. 保护时间结束，解除保护。<br>游戏盈利计算公式：玩家输赢</div>`:'<div class="er" style="font-size:14px">首充用户默认执行的返奖率，从充值时间开始计算，指定保护时长后解除保护</div>');pf.querySelector('#ph').oninput=e=>e.target.value=e.target.value.replace(/\D/g,'')};pst.onchange=pr;pr();
-M.querySelector('#po').onclick=()=>{clr(M);const ph=pf.querySelector('#ph'),pa=pf.querySelector('#pa');let b=0;if(!/^[1-9]\d{0,2}$/.test(ph.value))b=bad(ph,'保护时间为必填，请输入1-999的正整数');if(pa&&!(pa.value!==''&&+pa.value>=0))b=bad(pa,'请输入不小于0的解除保护金额');if(b)return;Object.assign(P,{on:M.querySelector('#pw').checked,st:pst.value,rate:+M.querySelector('#pr').value,hrs:+ph.value});M.remove();toast('保存成功，保护配置已生效')}}
+$('#atb').onclick=e=>{
+  const a=e.target.dataset.a;if(!a)return;
+  const n=e.target.closest('tr').dataset.k;
+  ({ed:()=>editor(n),vs:()=>editor(n,1),vm:()=>editor(n,1),tg:()=>toggleSiteStrategyStatus(n)})[a]();
+};
+
+$('#ab1').onclick=()=>modal('<div class="mb-4 text-base font-semibold">AI返奖率简介</div>'+AI_INTRO_HTML,900);
+$('#ab2').onclick=()=>prot();
+$('#ab3').onclick=()=>{if(canAddMoreStrategy())editor(null)};
+
+/* ===== 需求2-2-b：快捷模式 / 表单模式 切换与默认设置 ===== */
+function syncModeUI(){
+  const isQuick=aiViewMode=='quick';
+  $('#modeToggleBtn').textContent=isQuick?'切换为表单模式':'切换为快捷模式';
+  $('#currentModeHint').textContent=isQuick?'当前：快捷模式':'当前：表单模式';
+  $('#setDefaultModeRadio').checked=(defaultSavedMode===aiViewMode);
+  $('#formModeBtns').classList.toggle('hidden',isQuick);
+  $('#quickModeView').classList.toggle('hidden',!isQuick);
+  $('#quickModeView').classList.toggle('flex',isQuick);
+  $('#formModeView').classList.toggle('hidden',isQuick);
+  $('#formModeView').classList.toggle('flex',!isQuick);
+  if(isQuick)renderQuickTab();else aiDraw();
+}
+$('#modeToggleBtn').onclick=()=>{
+  aiViewMode=(aiViewMode=='quick'?'form':'quick');
+  syncModeUI();
+};
+$('#setDefaultModeRadio').onchange=()=>{
+  if($('#setDefaultModeRadio').checked){
+    defaultSavedMode=aiViewMode;
+    localStorage.setItem(MODE_STORAGE_KEY,defaultSavedMode);
+    toast(`已将「${defaultSavedMode=='quick'?'快捷模式':'表单模式'}」设为默认显示方式`);
+  }
+};
+
+/* ===== 需求2-2-b-2：快捷设置模式 3个Tab页渲染 ===== */
+function renderQuickTab(){
+  document.querySelectorAll('#qTabBar .qtab').forEach(el=>el.classList.toggle('on',+el.dataset.qt===quickTabIdx));
+  const box=$('#qTabBody');
+  if(quickTabIdx===0){
+    // Tab 1: AI返奖率介绍
+    box.innerHTML=`<div class="qcard"><div class="mb-4 text-base font-semibold">AI返奖率简介</div>${AI_INTRO_HTML}</div>`;
+  }else if(quickTabIdx===1){
+    // Tab 2: 玩家保护配置（与表单模式下“玩家保护配置”弹窗功能一致，默认执行返奖率96%，保护时间48）
+    const P=PROT;
+    box.innerHTML=`<div class="qcard">
+      <div class="mb-4 text-base font-semibold">保护设置 <a class="lk text-xs ml-4" id="qpgl">查看保护玩家记录 ›</a></div>
+      <div class="mb-3"><label>商户:</label><input disabled value="888" style="width:300px"></div>
+      <div class="mb-3 flex items-center gap-2"><label>新手保护开关:</label><div class="sw-wrap" id="qpwWrap" title="点击切换开启/关闭"><span class="sw ${P.on?'on':''}" id="qpwBtn"></span><span id="qpwStatus" class="text-xs font-medium ${P.on?'text-green-600':'text-red-600'}">${P.on?'已开启':'已关闭'}</span></div> <span style="color:#e5321f" id="qpwt"></span></div>
+      <div class="mb-3"><label>保护策略:</label><select id="qpst" style="width:300px">${opt(FLAGS.profit?['按时间','按游戏盈利']:['按时间'])}</select></div>
+      <div class="mb-3"><label>保护对象:</label><select style="width:300px"><option>首充用户</option></select></div>
+      <div class="mb-3"><label>执行配置方案:</label><select style="width:300px"><option>默认配置</option></select></div>
+      <div class="mb-3 fi"><label>执行返奖率(%):</label><select id="qpr" style="width:300px">${RT.map(v=>`<option value="${v}" ${v==P.rate?'selected':''}>${v}</option>`).join('')}</select><div class="er"></div></div>
+      <div id="qpf"></div>
+      <div class="mt-5"><button class="btn" id="qpo">确定</button></div>
+    </div>`;
+    const pst=box.querySelector('#qpst'),pf=box.querySelector('#qpf');
+    let qProtOn=!!P.on;
+    const sw=()=>{
+      const btn=box.querySelector('#qpwBtn');
+      const stEl=box.querySelector('#qpwStatus');
+      if(btn)btn.classList.toggle('on',qProtOn);
+      if(stEl){stEl.textContent=qProtOn?'已开启':'已关闭';stEl.className='text-xs font-medium '+(qProtOn?'text-green-600':'text-red-600')}
+      box.querySelector('#qpwt').textContent=qProtOn?'':'关闭后，商户玩家保护功能无效，所有玩家走正常的返奖率策略';
+    };
+    pst.value=P.st;
+    box.querySelector('#qpwWrap').onclick=()=>{qProtOn=!qProtOn;sw()};
+    sw();
+    box.querySelector('#qpgl').onclick=()=>goto(2,'AI游戏返奖率配置','商户','888');
+    const pr=()=>{
+      const g=pst.value=='按游戏盈利';
+      pf.innerHTML=(g?'<div class="mb-2"><b>解除保护(用户触碰以下条件时，解除保护)</b></div>':'')+`<div class="fi mb-3"><label>保护时间(小时):</label><input id="qph" value="${P.hrs}" placeholder="请输入1-999的整数" style="width:300px"><div class="er"></div></div>`+(g?`<div class="fi mb-3"><label>首充金额(>=)</label><input disabled value="0.00" style="width:90px;min-width:0"> <select id="qpt" style="min-width:0"><option>游戏盈利金额</option><option>游戏盈利比例</option></select> <input id="qpa" value="${P.rel}" style="width:90px;min-width:0"><div class="er"></div></div>`:'<div class="er" style="font-size:13px">首充用户默认执行的返奖率，从充值时间开始计算，指定保护时长后解除保护</div>');
+      pf.querySelector('#qph').oninput=e=>e.target.value=e.target.value.replace(/\D/g,'');
+    };
+    pst.onchange=pr;pr();
+    box.querySelector('#qpo').onclick=()=>{
+      clr(box);
+      const ph=pf.querySelector('#qph'),pa=pf.querySelector('#qpa');let b=0;
+      if(!/^[1-9]\d{0,2}$/.test(ph.value))b=bad(ph,'保护时间为必填，请输入1-999的正整数');
+      if(pa&&!(pa.value!==''&&+pa.value>=0))b=bad(pa,'请输入不小于0的解除保护金额');
+      if(b)return;
+      Object.assign(P,{on:qProtOn,st:pst.value,rate:+box.querySelector('#qpr').value,hrs:+ph.value});
+      toast('保存成功，保护配置已生效');
+    };
+  }else{
+    // Tab 3: 策略配置（内置策略配置编辑器，支持切换投注分段策略 / 会员层级策略，已存在对应类型时自动回显编辑，未存在时新增）
+    renderQuickStrategyConfig(box);
+  }
+}
+$('#qTabBar').onclick=e=>{
+  const t=e.target.closest('.qtab');
+  if(t){quickTabIdx=+t.dataset.qt;renderQuickTab();}
+};
+
+function renderQuickStrategyConfig(box, preferredType){
+  const list=Object.entries(ST);
+  const segEntry=list.find(([_,s])=>s.type=='投注分段策略');
+  const memEntry=list.find(([_,s])=>s.type=='会员层级策略');
+  let curType=preferredType||(segEntry?'投注分段策略':(memEntry?'会员层级策略':'投注分段策略'));
+
+  const buildState=(tp)=>{
+    const currentList=Object.entries(ST);
+    const hit=currentList.find(([_,s])=>s.type==tp);
+    if(hit){
+      return {isNew:false,key:hit[0],src:hit[1],type:tp,st:hit[1].st,rows:hit[1].r.map(x=>[x[0],x[1]]),m:[...(hit[1].m||LV.map(_=>96))]};
+    }
+    // 需求3：快捷模式下新增策略默认是关闭
+    return {isNew:true,key:tp,src:null,type:tp,st:'已关闭',rows:[[0,96]],m:LV.map(_=>96)};
+  };
+  let d=buildState(curType);
+
+  box.innerHTML=`<div class="qcard">
+    <div class="flex items-center justify-between mb-4">
+      <div class="text-base font-semibold">策略配置</div>
+      <div class="text-xs opacity-65">当前已配置：${list.length}/2 条（投注分段策略：${segEntry?segEntry[1].st:'未配置'} ｜ 会员层级策略：${memEntry?memEntry[1].st:'未配置'}）</div>
+    </div>
+    <div class="flex flex-wrap items-center gap-6 mb-4">
+      <div><b>策略类型:</b> <select id="qet" style="width:220px">${opt(['投注分段策略','会员层级策略'])}</select></div>
+      <div class="flex items-center gap-2">
+        <b>是否开启:</b>
+        <div class="sw-wrap" id="qswWrap" title="点击切换开启/关闭（分段策略与会员层级策略不可同时开启，可同时关闭）">
+          <span class="sw ${d.st=='已开启'?'on':''}" id="qswBtn"></span>
+          <span id="qswTxt" class="text-xs font-medium ${d.st=='已开启'?'text-green-600':'text-red-600'}">${d.st}</span>
+        </div>
+      </div>
+    </div>
+    <div id="qeb"></div>
+  </div>`;
+
+  const qet=box.querySelector('#qet'),qeb=box.querySelector('#qeb');
+  qet.value=d.type;
+
+  const syncSwitchUI=()=>{
+    const isOn=d.st=='已开启';
+    const swBtn=box.querySelector('#qswBtn');
+    const swTxt=box.querySelector('#qswTxt');
+    if(swBtn)swBtn.classList.toggle('on',isOn);
+    if(swTxt){
+      swTxt.textContent=d.st;
+      swTxt.className='text-xs font-medium '+(isOn?'text-green-600':'text-red-600');
+    }
+  };
+
+  // 需求2：快捷模式中滑动设置（逻辑与表单模式一致：不可同时开启，可同时关闭）
+  box.querySelector('#qswWrap').onclick=()=>{
+    if(d.st=='已开启'){
+      d.st='已关闭';
+      if(!d.isNew && ST[d.key]){
+        ST[d.key].st='已关闭';
+        ST[d.key].op='admin888';
+        ST[d.key].ot=now();
+        aiDraw();
+        renderQuickStrategyConfig(box, d.type);
+      }else{
+        syncSwitchUI();
+      }
+      toast('策略已关闭');
+      return;
+    }
+    const otherEntry=Object.entries(ST).find(([_,s])=>s.type!==d.type && s.st=='已开启');
+    if(otherEntry){
+      const otherSt=otherEntry[1];
+      const msg=otherSt.type=='投注分段策略'
+        ?'该策略开启，则“投注分段策略”将关闭'
+        :'该策略开启，则“会员层级策略”将关闭';
+      const C=modal(`<div class="mb-4 text-base font-semibold">提示</div>
+        <p class="mb-6">${msg}</p>
+        <div class="text-right">
+          <button class="btn-ghost mr-2" id="qStCn">取消</button>
+          <button class="btn" id="qStOk">确认</button>
+        </div>`,460);
+      C.querySelector('#qStCn').onclick=()=>C.remove();
+      C.querySelector('#qStOk').onclick=()=>{
+        otherSt.st='已关闭';
+        otherSt.op='admin888';
+        otherSt.ot=now();
+        d.st='已开启';
+        if(!d.isNew && ST[d.key]){
+          ST[d.key].st='已开启';
+          ST[d.key].op='admin888';
+          ST[d.key].ot=now();
+        }
+        C.remove();
+        aiDraw();
+        toast('策略已启用');
+        if(!d.isNew && ST[d.key])renderQuickStrategyConfig(box, d.type);
+        else syncSwitchUI();
+      };
+    }else{
+      d.st='已开启';
+      if(!d.isNew && ST[d.key]){
+        ST[d.key].st='已开启';
+        ST[d.key].op='admin888';
+        ST[d.key].ot=now();
+        aiDraw();
+        toast('策略已启用');
+        renderQuickStrategyConfig(box, d.type);
+      }else{
+        syncSwitchUI();
+        toast('已设为开启，点击保存配置后生效');
+      }
+    }
+  };
+
+  const rb=()=>{
+    if(d.type=='会员层级策略'){
+      qeb.innerHTML=`<div class="flex gap-4 mb-2 font-semibold"><span style="width:180px">会员层级</span><span style="width:120px">目标返奖率(%)</span></div>
+      <div style="max-height:46vh;overflow:auto">${LV.map((l,i)=>`<div class="flex gap-4 mb-2.5"><input disabled value="${l}" style="width:180px"><select data-m="${i}" style="width:120px;min-width:0">${RT.map(v=>`<option value="${v}" ${v==d.m[i]?'selected':''}>${v}</option>`).join('')}</select></div>`).join('')}</div>
+      <div class="mt-5"><button class="btn" id="qes">保存配置</button></div>`;
+    }else{
+      qeb.innerHTML=`<div class="text-right mb-2"><button class="btn" id="qea">新增投注分段及目标返奖率+</button></div>
+      <table><tr><th>最低投注</th><th>目标返奖率(%)</th><th>操作</th></tr>${d.rows.map((x,i)=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td class="ops"><span data-e="${i}" title="编辑">✎</span><span data-d="${i}" title="删除" style="cursor:${i?'pointer':'not-allowed'};opacity:${i?1:.3};color:${i?'#e5321f':'inherit'}">🗑</span></td></tr>`).join('')}</table>
+      <div class="mt-5"><button class="btn" id="qes">保存配置</button></div>`;
+    }
+  };
+  rb();
+
+  qet.onchange=()=>{
+    d=buildState(qet.value);
+    syncSwitchUI();
+    rb();
+  };
+  qeb.onchange=e=>{const i=e.target.dataset.m;if(i!=null)d.m[i]=+e.target.value};
+
+  const sub=i=>{
+    const ed=i!=null;
+    const curVal=ed?d.rows[i][1]:96;
+    const S=modal(`<div class="mb-4 text-base font-semibold">${ed?'编辑':'新增'}</div>
+      <div class="fi mb-3"><label>最低投注</label><input id="sm" placeholder="请输入" ${ed?'disabled':''} value="${ed?d.rows[i][0]:''}"><div class="er"></div></div>
+      <div class="fi mb-3"><label>目标返奖率(%)</label><select id="sr">${RT.map(v=>`<option value="${v}" ${v==curVal?'selected':''}>${v}</option>`).join('')}</select><div class="er"></div></div>
+      <div class="text-center"><button class="btn" id="so">确定</button></div>`,460);
+    S.querySelector('#so').onclick=()=>{
+      clr(S);
+      const sm=S.querySelector('#sm'),sr=S.querySelector('#sr'),v=sm.value.trim();let b=0;
+      if(!ed){
+        if(!v)b=bad(sm,'请输入最低投注');
+        else if(!/^\d+(\.\d{1,2})?$/.test(v)||+v<=0)b=bad(sm,'最低投注需大于0，仅支持整数或最多2位小数');
+        else if(d.rows.some(x=>x[0]==+v))b=bad(sm,'投注金额重复');
+      }
+      if(!sr.value)b=bad(sr,'请选择目标返奖率');
+      if(b)return;
+      if(ed)d.rows[i][1]=+sr.value;else d.rows.push([+v,+sr.value]);
+      d.rows.sort((x,y)=>x[0]-y[0]);
+      S.remove();rb();
+    };
+  };
+
+  qeb.onclick=e=>{
+    const t=e.target;
+    if(t.id=='qea')sub(null);
+    else if(t.dataset.e!=null)sub(+t.dataset.e);
+    else if(t.dataset.d>0)confirm('确认删除该投注分段？')&&(d.rows.splice(+t.dataset.d,1),rb());
+    else if(t.id=='qes'){
+      const mem=d.type=='会员层级策略',rows=[...d.rows].sort((x,y)=>x[0]-y[0]);
+      const nm=d.isNew?d.type:d.key;
+      const existIds=Object.values(ST).map(s=>s.id);
+      const nextId=d.isNew?(existIds.length?Math.max(...existIds)+1:1401):d.src.id;
+      if(d.st=='已开启'){
+        Object.entries(ST).forEach(([k,s])=>{
+          if(k!==nm && s.st=='已开启'){
+            s.st='已关闭';s.op='admin888';s.ot=now();
+          }
+        });
+      }
+      ST[nm]=mk(nextId,d.type,!mem&&rows.length>1?1:0,mem?[[0,d.m[1],d.m[1]]]:rows.map(x=>[x[0],x[1],x[1]]),'admin888',now(),mem?d.m:undefined,d.st);
+      aiDraw();draw();toast('保存成功');
+      renderQuickStrategyConfig(box, d.type);
+    }
+  };
+}
+
+/* ===== 需求2-5：表单模式点击【策略配置】打开的弹窗（标题“策略配置”，默认96%，删除预期实际返奖率） ===== */
+function editor(n,ro){
+  const isNew=n===null,src=isNew?null:ST[n];
+  const existingTypes=Object.values(ST).map(s=>s.type);
+  const availTypes=isNew?['投注分段策略','会员层级策略'].filter(t=>!existingTypes.includes(t)):[src.type];
+  if(isNew && !availTypes.length){
+    toast('投注分段策略与会员层级策略均已配置，无法继续新增');
+    return;
+  }
+  const initType=isNew?availTypes[0]:src.type;
+  const d={
+    type:initType,
+    rows:isNew?[[0,96]]:src.r.map(x=>[x[0],x[1]]),
+    m:isNew?LV.map(_=>96):[...(src.m||LV.map(_=>96))]
+  };
+  const mem0=!isNew&&src.type=='会员层级策略';
+  // 需求2-5-a：窗口名称改为“策略配置”
+  const M=modal(`<div class="mb-4 text-base font-semibold">${ro?(mem0?'查看返奖率':'预览策略'):'策略配置'}</div>
+    <div class="mb-3"><b>策略类型:</b> <select id="et" ${(ro||!isNew)?'disabled':''}>${opt(availTypes)}</select></div>
+    <div id="eb"></div>`,740);
+  const et=M.querySelector('#et'),eb=M.querySelector('#eb');et.value=d.type;
+
+  const rb=()=>{
+    if(d.type=='会员层级策略'){
+      // 需求2-5-d：目标返奖率默认96%，预期实际返奖率删除不要
+      eb.innerHTML=`<div class="flex gap-4 mb-2 font-semibold"><span style="width:170px">会员层级</span><span style="width:110px">目标返奖率(%)</span></div>
+      <div style="max-height:48vh;overflow:auto">${LV.map((l,i)=>`<div class="flex gap-4 mb-3"><input disabled value="${l}" style="width:170px"><select data-m="${i}" style="width:110px;min-width:0" ${ro?'disabled':''}>${RT.map(v=>`<option value="${v}" ${v==d.m[i]?'selected':''}>${v}</option>`).join('')}</select></div>`).join('')}</div>${ro?'':'<div class="text-center mt-4"><button class="btn" id="es">保存配置</button></div>'}`;
+    }else{
+      // 需求2-5-c：预期实际返奖率删除不要
+      eb.innerHTML=`${ro?'':'<div class="text-right mb-2"><button class="btn" id="ea">新增投注分段及目标返奖率+</button></div>'}<table><tr><th>最低投注</th><th>目标返奖率(%)</th>${ro?'':'<th>操作</th>'}</tr>${d.rows.map((x,i)=>`<tr><td>${x[0]}</td><td>${x[1]}</td>${ro?'':`<td class="ops"><span data-e="${i}" title="编辑">✎</span><span data-d="${i}" title="删除" style="cursor:${i?'pointer':'not-allowed'};opacity:${i?1:.3};color:${i?'#e5321f':'inherit'}">🗑</span></td>`}</tr>`).join('')}</table>${ro?'':'<div class="text-center mt-6"><button class="btn" id="es">保存配置</button></div>'}`;
+    }
+  };
+  rb();
+
+  et.onchange=()=>{d.type=et.value;rb()};
+  eb.onchange=e=>{const i=e.target.dataset.m;if(i!=null)d.m[i]=+e.target.value};
+
+  const sub=i=>{
+    const ed=i!=null;
+    // 需求2-5-b：默认设置为96%
+    const curVal=ed?d.rows[i][1]:96;
+    const S=modal(`<div class="mb-4 text-base font-semibold">${ed?'编辑':'新增'}</div>
+      <div class="fi mb-3"><label>最低投注</label><input id="sm" placeholder="请输入" ${ed?'disabled':''} value="${ed?d.rows[i][0]:''}"><div class="er"></div></div>
+      <div class="fi mb-3"><label>目标返奖率(%)</label><select id="sr">${RT.map(v=>`<option value="${v}" ${v==curVal?'selected':''}>${v}</option>`).join('')}</select><div class="er"></div></div>
+      <div class="text-center"><button class="btn" id="so">确定</button><em class="dn">最低投注>0，整数或≤2位小数，不可与已有重复(提示“投注金额重复”)；目标返奖率默认96%</em></div>`,460);
+    S.querySelector('#so').onclick=()=>{
+      clr(S);const sm=S.querySelector('#sm'),sr=S.querySelector('#sr'),v=sm.value.trim();let b=0;
+      if(!ed){
+        if(!v)b=bad(sm,'请输入最低投注');
+        else if(!/^\d+(\.\d{1,2})?$/.test(v)||+v<=0)b=bad(sm,'最低投注需大于0，仅支持整数或最多2位小数');
+        else if(d.rows.some(x=>x[0]==+v))b=bad(sm,'投注金额重复');
+      }
+      if(!sr.value)b=bad(sr,'请选择目标返奖率');
+      if(b)return;
+      if(ed)d.rows[i][1]=+sr.value;else d.rows.push([+v,+sr.value]);
+      d.rows.sort((x,y)=>x[0]-y[0]);S.remove();rb();
+    };
+  };
+
+  eb.onclick=e=>{
+    const t=e.target;
+    if(t.id=='ea')sub(null);
+    else if(t.dataset.e!=null)sub(+t.dataset.e);
+    else if(t.dataset.d>0)confirm('确认删除该投注分段？')&&(d.rows.splice(+t.dataset.d,1),rb());
+    else if(t.id=='es'){
+      const mem=d.type=='会员层级策略',rows=[...d.rows].sort((x,y)=>x[0]-y[0]);
+      const nm=isNew?d.type:n;
+      const existIds=Object.values(ST).map(s=>s.id);
+      const nextId=isNew?(existIds.length?Math.max(...existIds)+1:1401):src.id;
+      // 需求3：表单模式下新增策略默认开启；若已有另一条策略处于开启状态，自动将其关闭以保证互斥
+      if(isNew){
+        Object.entries(ST).forEach(([k,s])=>{
+          if(k!==nm && s.st=='已开启'){
+            s.st='已关闭';s.op='admin888';s.ot=now();
+          }
+        });
+      }
+      const stVal=isNew?'已开启':src.st;
+      ST[nm]=mk(nextId,d.type,!mem&&rows.length>1?1:0,mem?[[0,d.m[1],d.m[1]]]:rows.map(x=>[x[0],x[1],x[1]]),'admin888',now(),mem?d.m:undefined,stVal);
+      M.remove();aiDraw();draw();toast('保存成功');
+    }
+  };
+}
+
+/* 需求2-3：【保护设置】子窗口（默认执行返奖率96%，保护时间48） */
+function prot(){
+  const P=PROT,M=modal(`<div class="mb-4 text-base font-semibold">保护设置 <a class="lk text-xs ml-4" id="pgl">查看保护玩家记录 ›</a></div>
+    <div class="mb-3"><label>商户:</label><input disabled value="888" style="width:300px"></div>
+    <div class="mb-3 flex items-center gap-2"><label>新手保护开关:</label><div class="sw-wrap" id="pwWrap" title="点击切换开启/关闭"><span class="sw ${P.on?'on':''}" id="pwBtn"></span><span id="pwStatus" class="text-xs font-medium ${P.on?'text-green-600':'text-red-600'}">${P.on?'已开启':'已关闭'}</span></div> <span style="color:#e5321f" id="pwt"></span></div>
+    <div class="mb-3"><label>保护策略:</label><select id="pst">${opt(FLAGS.profit?['按时间','按游戏盈利']:['按时间'])}</select></div>
+    <div class="mb-3"><label>保护对象:</label><select><option>首充用户</option></select></div>
+    <div class="mb-3"><label>执行配置方案:</label><select><option>默认配置</option></select></div>
+    <div class="mb-3 fi"><label>执行返奖率(%):</label><select id="pr">${RT.map(v=>`<option value="${v}" ${v==P.rate?'selected':''}>${v}</option>`).join('')}</select><div class="er"></div></div>
+    <div id="pf"></div>
+    <div class="text-center mt-4"><button class="btn" id="po">确定</button><em class="dn">必填：保护时间1-999正整数（默认48）；执行返奖率默认96%；商户由总控下发只读</em></div>`,640);
+  const pst=M.querySelector('#pst'),pf=M.querySelector('#pf');
+  let mProtOn=!!P.on;
+  const sw=()=>{
+    const btn=M.querySelector('#pwBtn');
+    const stEl=M.querySelector('#pwStatus');
+    if(btn)btn.classList.toggle('on',mProtOn);
+    if(stEl){stEl.textContent=mProtOn?'已开启':'已关闭';stEl.className='text-xs font-medium '+(mProtOn?'text-green-600':'text-red-600')}
+    M.querySelector('#pwt').textContent=mProtOn?'':'关闭后，商户玩家保护功能无效，所有玩家走正常的返奖率策略';
+  };
+  pst.value=P.st;
+  M.querySelector('#pwWrap').onclick=()=>{mProtOn=!mProtOn;sw()};
+  sw();
+  M.querySelector('#pgl').onclick=()=>{M.remove();goto(2,'AI游戏返奖率配置','商户','888')};
+  const pr=()=>{
+    const g=pst.value=='按游戏盈利';
+    pf.innerHTML=(g?'<div class="mb-2"><b>解除保护(用户触碰以下条件时，解除保护)</b></div>':'')+`<div class="fi mb-3"><label>保护时间(小时)</label><input id="ph" value="${P.hrs}" placeholder="请输入1-999的整数" style="width:300px"><div class="er"></div></div>`+(g?`<div class="fi mb-3"><label>首充金额(>=)</label><input disabled value="0.00" style="width:90px;min-width:0"> <select id="pt" style="min-width:0"><option>游戏盈利金额</option><option>游戏盈利比例</option></select> <input id="pa" value="${P.rel}" style="width:90px;min-width:0"><div class="er"></div></div><div class="er" style="line-height:1.7">首充用户默认执行配置的返奖率，当达到以下指定条件即解除保护。<br>1. 游戏盈利金额：即首充用户游戏盈利达到配置金额时，解除保护。<br>2. 游戏盈利比例：游戏盈利金额达到首充金额的指定比例（比如充值100，希望游戏盈利达到10即解除保护，则填10%即可），解除保护。<br>3. 保护时间结束，解除保护。<br>游戏盈利计算公式：玩家输赢</div>`:'<div class="er" style="font-size:14px">首充用户默认执行的返奖率，从充值时间开始计算，指定保护时长后解除保护</div>');
+    pf.querySelector('#ph').oninput=e=>e.target.value=e.target.value.replace(/\D/g,'');
+  };
+  pst.onchange=pr;pr();
+  M.querySelector('#po').onclick=()=>{
+    clr(M);const ph=pf.querySelector('#ph'),pa=pf.querySelector('#pa');let b=0;
+    if(!/^[1-9]\d{0,2}$/.test(ph.value))b=bad(ph,'保护时间为必填，请输入1-999的正整数');
+    if(pa&&!(pa.value!==''&&+pa.value>=0))b=bad(pa,'请输入不小于0的解除保护金额');
+    if(b)return;
+    Object.assign(P,{on:mProtOn,st:pst.value,rate:+M.querySelector('#pr').value,hrs:+ph.value});
+    M.remove();toast('保存成功，保护配置已生效');
+  };
+}
+
 function bind(n){const PL2=['PLAYSON','KAGAMING','YELLOWBAT','PLAYNGO','TOPPLAYER','PANDA','FASTSPIN','inout','RUBYPLAY','PG','POPOK','FaChai','G759','CP','PP','Spribe','JDB','Tada'],G=POOL.电子游戏,S={},O={};PL2.forEach(p=>S[p]=new Set());
 const M=modal(`<div class="mb-4 text-base font-semibold">绑定策略</div><div class="mb-3"><label>策略名称:</label><input disabled value="${n}"></div><div id="bt"></div><div class="text-center mt-4"><button class="btn" id="bo">确定</button></div>`,720);
 const R=()=>{const t=PL2.reduce((a,p)=>a+S[p].size,0);M.querySelector('#bt').innerHTML=`<div class="mb-2" style="color:var(--lk)">电子 (${t})</div><label><input type="checkbox" id="ba" ${t==PL2.length*G.length?'checked':''}> 全部平台</label>`+PL2.map(p=>`<div class="border my-1 p-2"><div class="flex justify-between"><label><input type="checkbox" data-p="${p}" ${S[p].size==G.length?'checked':''}> ${p} 已选 ${S[p].size} 个游戏</label><span data-o="${p}" class="cursor-pointer">${O[p]?'⌄':'›'}</span></div>${O[p]?`<input class="bs" placeholder="请输入游戏名称" style="height:28px;min-width:0"><div class="grid grid-cols-4 gap-1 mt-1">${G.map(g=>`<label><input type="checkbox" data-g="${p}|${g}" ${S[p].has(g)?'checked':''}> ${g}</label>`).join('')}</div>`:''}</div>`).join('')};R();
 M.onclick=e=>{const o=e.target.dataset.o;if(o){O[o]=!O[o];R()}if(e.target.id=='bo'){M.remove();toast('绑定成功（预留功能）')}};
 M.onchange=e=>{const t=e.target,p=t.dataset.p,g=t.dataset.g;if(t.id=='ba')PL2.forEach(x=>S[x]=t.checked?new Set(G):new Set());else if(p)S[p]=t.checked?new Set(G):new Set();else if(g){const[a,b]=g.split('|');t.checked?S[a].add(b):S[a].delete(b)}R()};
 M.oninput=e=>{if(e.target.classList.contains('bs'))e.target.nextElementSibling.querySelectorAll('label').forEach(l=>l.style.display=l.textContent.toLowerCase().includes(e.target.value.toLowerCase())?'':'none')}}
+
 /* ===== 保护玩家记录 ===== */
 const PR=[],sel=new Set(),pr={st:'全部',id:'',cur:1,size:50};
-(()=>{const A=[10,20,40,30,18,13,100,35,80,25],W=[-9.84,-5.52,-39.96,25.53,-30.03,-12.24,1.92,-.8,-30.52,-10.05];for(let i=0;i<120;i++){const run=i<3||i%20==7;PR.push({id:i+1,uid:'3'+String((i*7340011+75459862)%1e9).padStart(9,'0'),ft:new Date(Date.UTC(2026,1,25,9,53,12)-i*74e3).toISOString().replace('T',' ').slice(0,19),amt:A[i%10],pol:'按时间，24 小时后解除',et:run?'-':'2026-02-25 09:58:16',win:W[i%10],st:run?'进行中':'已结束',rm:i%15==3?'测试会员':''})}})();
+(()=>{const A=[10,20,40,30,18,13,100,35,80,25],W=[-9.84,-5.52,-39.96,25.53,-30.03,-12.24,1.92,-.8,-30.52,-10.05];for(let i=0;i<120;i++){const run=i<3||i%20==7;PR.push({id:i+1,uid:'3'+String((i*7340011+75459862)%1e9).padStart(9,'0'),ft:new Date(Date.UTC(2026,1,25,9,53,12)-i*74e3).toISOString().replace('T',' ').slice(0,19),amt:A[i%10],pol:'按时间，48 小时后解除',et:run?'-':'2026-02-25 09:58:16',win:W[i%10],st:run?'进行中':'已结束',rm:i%15==3?'测试会员':''})}})();
 const pgH=(n,cur,pages,size)=>{const ps=pages<=7?[...Array(pages)].map((_,i)=>i+1):cur<=4?[1,2,3,4,5,'…',pages]:cur>=pages-3?[1,'…',...[...Array(5)].map((_,i)=>pages-4+i)]:[1,'…',cur-1,cur,cur+1,'…',pages];return `<span>共 ${n} 条数据</span>`+ps.map(x=>x=='…'?'<span>•••</span>':`<b data-p="${x}" class="${x==cur?'on':''}">${x}</b>`).join('')+`<select id="gsz">${[10,20,50].map(x=>`<option value="${x}" ${x==size?'selected':''}>${x} 条/页</option>`).join('')}</select><span>跳至</span><input id="gj" style="width:56px;min-width:0"><span>页</span>`};
 const pFil=()=>PR.filter(r=>(pr.st=='全部'||r.st==pr.st)&&(!pr.id||r.uid.includes(pr.id)));
 function btnUp(){const b=$('#gb');b.disabled=!sel.size;b.style.opacity=sel.size?1:.4}
@@ -148,11 +742,32 @@ M.onclick=e=>{const x=e.target.dataset.x;if(x){rows=rows.filter(r=>r.id!=x);R()}
 M.querySelector('#bs').onclick=()=>{if(!rows.length)return toast('请至少保留一条数据');if(!rows.some(r=>r.st=='进行中'))return toast('所选数据中没有“进行中”的记录，无需解除');cfm(()=>{const n=rel(rows.map(r=>r.id));M.remove();toast(`已解除保护 ${n} 条`)})}};
 function goto(i,from,k,v,name){nav(i);if(i==1&&name){$('#aN').value=name;ai.name=name;ai.cur=1;aiDraw()}const b=$('#bn');b.innerHTML=`已从 ${from} 携带参数 [${k}: ${v}] 跳转至此 <span id="bx" style="margin-left:16px;cursor:pointer">✕</span>`;b.classList.remove('hidden');$('#bx').onclick=()=>b.classList.add('hidden');clearTimeout(goto.t);goto.t=setTimeout(()=>b.classList.add('hidden'),1800)}
 $('#dv').onclick=()=>{document.body.classList.toggle('dev');$('#dv').textContent=document.body.classList.contains('dev')?'隐藏研发注释':'显示研发注释'};
-prDraw();aiDraw();
-const NAV=['平台概况','系统管理','商户游戏管理','会员管理','商户财务管理','报表查询','代理中心(无限极差)','商户财务配置','消息管理','福利中心','运营相关','推广渠道管理'],PG=['子平台游戏配置','AI游戏返奖率配置','保护玩家记录'];
-function nav(i){$('#bn').classList.add('hidden');PG.forEach((_,j)=>{$('#p'+j).classList.toggle('hidden',i!=j);$('#p'+j).classList.toggle('flex',i==j)});$('#bc').textContent=PG[i];
-$('#tabs').innerHTML=PG.map((x,j)=>`<div class="tab ${i==j?'on':''}" data-i="${j}">${x}</div>`).join('');$('#menu').querySelectorAll('.si').forEach((e,j)=>e.classList.toggle('on',i==j))}
-$('#menu').innerHTML=NAV.map(x=>`<div class="mi"><span>${x}${x=='运营相关'?'<span class="bd">13</span>':''}</span><span>⌄</span></div>`).join('')+'<div class="mi"><span>子平台游戏管理</span><span>⌃</span></div><div class="sub">'+PG.map((x,j)=>`<div class="si" data-i="${j}">${x}</div>`).join('')+'</div>';
-document.addEventListener('click',e=>{const t=e.target.closest('.si,.tab');if(t)nav(+t.dataset.i)});nav(0);
+prDraw();syncModeUI();
+
+const NAV=['平台概况','系统管理','商户游戏管理','会员管理','商户财务管理','报表查询','代理中心(无限极差)','商户财务配置','消息管理','福利中心','运营相关','推广渠道管理'];
+const ALL_PAGES=[
+  {idx:0,name:'子平台游戏配置',visible:SHOW_SUB_PLATFORM_CONFIG},
+  {idx:1,name:'AI游戏返奖率配置',visible:true},
+  {idx:2,name:'保护玩家记录',visible:true}
+];
+const VISIBLE_PAGES=ALL_PAGES.filter(p=>p.visible);
+
+function nav(i){
+  if(i===0 && !SHOW_SUB_PLATFORM_CONFIG)i=1;
+  $('#bn').classList.add('hidden');
+  ALL_PAGES.forEach(p=>{
+    const show=(p.idx===i && p.visible);
+    $('#p'+p.idx).classList.toggle('hidden',!show);
+    $('#p'+p.idx).classList.toggle('flex',show);
+  });
+  const curPage=ALL_PAGES.find(p=>p.idx===i)||VISIBLE_PAGES[0];
+  $('#bc').textContent=curPage.name;
+  $('#tabs').innerHTML=VISIBLE_PAGES.map(p=>`<div class="tab ${p.idx===i?'on':''}" data-i="${p.idx}">${p.name}</div>`).join('');
+  $('#menu').querySelectorAll('.si').forEach(e=>e.classList.toggle('on',+e.dataset.i===i));
+  if(i===1)syncModeUI();
+}
+$('#menu').innerHTML=NAV.map(x=>`<div class="mi"><span>${x}${x=='运营相关'?'<span class="bd">13</span>':''}</span><span>⌄</span></div>`).join('')+'<div class="mi"><span>子平台游戏管理</span><span>⌃</span></div><div class="sub">'+VISIBLE_PAGES.map(p=>`<div class="si" data-i="${p.idx}">${p.name}</div>`).join('')+'</div>';
+document.addEventListener('click',e=>{const t=e.target.closest('.si,.tab');if(t)nav(+t.dataset.i)});
+nav(SHOW_SUB_PLATFORM_CONFIG?0:1);
 setInterval(()=>$('#clk').textContent='Etc/GMT+3 '+now().replace(/-/g,'/'),1000);
 </script></body></html>
