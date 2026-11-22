@@ -598,15 +598,68 @@ function editor(n,ro){
   const initType=isNew?availTypes[0]:src.type;
   const d={
     type:initType,
+    st:isNew?'已关闭':src.st,
     rows:isNew?[[0,96]]:src.r.map(x=>[x[0],x[1]]),
     m:isNew?LV.map(_=>96):[...(src.m||LV.map(_=>96))]
   };
   const mem0=!isNew&&src.type=='会员层级策略';
   // 需求2-5-a：窗口名称改为“策略配置”
   const M=modal(`<div class="mb-4 text-base font-semibold">${ro?(mem0?'查看返奖率':'预览策略'):'策略配置'}</div>
-    <div class="mb-3"><b>策略类型:</b> <select id="et" ${(ro||!isNew)?'disabled':''}>${opt(availTypes)}</select></div>
+    <div class="flex flex-wrap items-center gap-6 mb-3">
+      <div><b>策略类型:</b> <select id="et" ${(ro||!isNew)?'disabled':''}>${opt(availTypes)}</select></div>
+      <div class="flex items-center gap-2">
+        <b>是否开启:</b>
+        <div class="sw-wrap" id="mswWrap" style="${ro?'cursor:not-allowed;opacity:.75':''}" title="${ro?'仅查看':'点击切换开启/关闭（分段策略与会员层级策略不可同时开启，可同时关闭）'}">
+          <span class="sw ${d.st=='已开启'?'on':''}" id="mswBtn"></span>
+          <span id="mswTxt" class="text-xs font-medium ${d.st=='已开启'?'text-green-600':'text-red-600'}">${d.st}</span>
+        </div>
+      </div>
+    </div>
     <div id="eb"></div>`,740);
   const et=M.querySelector('#et'),eb=M.querySelector('#eb');et.value=d.type;
+
+  const syncModalSwitchUI=()=>{
+    const isOn=d.st=='已开启';
+    const swBtn=M.querySelector('#mswBtn');
+    const swTxt=M.querySelector('#mswTxt');
+    if(swBtn)swBtn.classList.toggle('on',isOn);
+    if(swTxt){
+      swTxt.textContent=d.st;
+      swTxt.className='text-xs font-medium '+(isOn?'text-green-600':'text-red-600');
+    }
+  };
+
+  if(!ro){
+    M.querySelector('#mswWrap').onclick=()=>{
+      if(d.st=='已开启'){
+        d.st='已关闭';
+        syncModalSwitchUI();
+        return;
+      }
+      const otherEntry=Object.entries(ST).find(([k,s])=>(isNew?true:k!==n) && s.type!==d.type && s.st=='已开启');
+      if(otherEntry){
+        const otherSt=otherEntry[1];
+        const msg=otherSt.type=='投注分段策略'
+          ?'该策略开启，则“投注分段策略”将关闭'
+          :'该策略开启，则“会员层级策略”将关闭';
+        const C=modal(`<div class="mb-4 text-base font-semibold">提示</div>
+          <p class="mb-6">${msg}</p>
+          <div class="text-right">
+            <button class="btn-ghost mr-2" id="mStCn">取消</button>
+            <button class="btn" id="mStOk">确认</button>
+          </div>`,460);
+        C.querySelector('#mStCn').onclick=()=>C.remove();
+        C.querySelector('#mStOk').onclick=()=>{
+          d.st='已开启';
+          syncModalSwitchUI();
+          C.remove();
+        };
+      }else{
+        d.st='已开启';
+        syncModalSwitchUI();
+      }
+    };
+  }
 
   const rb=()=>{
     if(d.type=='会员层级策略'){
@@ -655,16 +708,15 @@ function editor(n,ro){
       const nm=isNew?d.type:n;
       const existIds=Object.values(ST).map(s=>s.id);
       const nextId=isNew?(existIds.length?Math.max(...existIds)+1:1401):src.id;
-      // 需求3：表单模式下新增策略默认开启；若已有另一条策略处于开启状态，自动将其关闭以保证互斥
-      if(isNew){
+      // 表单模式下按开关状态保存：默认关闭；若开启且已有另一条策略处于开启状态，自动关闭另一条以保证互斥
+      if(d.st=='已开启'){
         Object.entries(ST).forEach(([k,s])=>{
           if(k!==nm && s.st=='已开启'){
             s.st='已关闭';s.op='admin888';s.ot=now();
           }
         });
       }
-      const stVal=isNew?'已开启':src.st;
-      ST[nm]=mk(nextId,d.type,!mem&&rows.length>1?1:0,mem?[[0,d.m[1],d.m[1]]]:rows.map(x=>[x[0],x[1],x[1]]),'admin888',now(),mem?d.m:undefined,stVal);
+      ST[nm]=mk(nextId,d.type,!mem&&rows.length>1?1:0,mem?[[0,d.m[1],d.m[1]]]:rows.map(x=>[x[0],x[1],x[1]]),'admin888',now(),mem?d.m:undefined,d.st);
       M.remove();aiDraw();draw();toast('保存成功');
     }
   };
